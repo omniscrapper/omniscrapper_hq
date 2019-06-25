@@ -1,0 +1,3 @@
+project=omniscrapper_hq
+test=rspec
+template=erb
