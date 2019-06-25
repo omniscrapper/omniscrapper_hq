@@ -178,6 +178,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  binding_of_caller
   capybara
   dotenv (~> 2.4)
   hanami (~> 1.3)
