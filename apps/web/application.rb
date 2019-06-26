@@ -1,3 +1,4 @@
+require 'sass'
 require 'hanami/helpers'
 require 'hanami/assets'
 
