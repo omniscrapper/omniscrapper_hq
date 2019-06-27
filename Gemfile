@@ -7,6 +7,7 @@ gem 'hanami-model', '~> 1.3'
 gem 'pg'
 gem 'haml'
 gem 'sass', '~> 3.4', '>= 3.4.22'
+gem 'bootstrap', '~> 4.3.1'
 
 group :development do
   # Code reloading
