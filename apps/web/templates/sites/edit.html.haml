@@ -1,0 +1,16 @@
+.container
+  %h2 Edit site
+
+  - unless params.valid?
+    .errors
+    %h5 There was a problem with your submission
+    %ul
+      - params.error_messages.each do |message|
+        = message
+
+  = form_for :site, routes.site_path(site.id), method: :patch do
+    - label :name
+    - text_field :name, value: site.name
+    - label :url
+    - url_field :url, value: site.url
+    - submit 'Update'

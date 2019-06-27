@@ -1,6 +1,6 @@
 RSpec.describe Site, type: :entity do
   it 'can be initialized' do
-    site = Site.new(name: 'Hello', url: 'test')
+    site = Fabricate.build(:site, name: 'Hello')
     expect(site.name).to eq 'Hello'
   end
 end
