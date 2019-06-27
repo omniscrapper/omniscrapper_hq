@@ -5,7 +5,7 @@ module Web
         include Web::Action
         expose :sites
 
-        def call(params)
+        def call
           @sites = SiteRepository.new.all
         end
       end
