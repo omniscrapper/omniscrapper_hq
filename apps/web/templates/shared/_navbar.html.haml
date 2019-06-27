@@ -1,0 +1,11 @@
+.navbar.navbar-expand-sm.navbar-light
+  = link_to 'Todo', routes.root_path, class: "navbar-brand", style: 'margin-bottom: 0'
+  
+  %button.navbar-toggler{ type: "button", "data-toggle" => "collapse",
+    "data-target" => "#navbarSupportedContent", "aria-controls" => "navbarSupportedContent",  "aria-expanded" => false, "aria-label" => "Toggle navigation" }
+    %span.navbar-toggler-icon
+
+  .collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to 'Sites', routes.sites_path, class: "nav-link"

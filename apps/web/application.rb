@@ -1,3 +1,4 @@
+require 'sass'
 require 'hanami/helpers'
 require 'hanami/assets'
 
@@ -143,7 +144,9 @@ module Web
         # Specify sources for assets
         #
         sources << [
-          'assets'
+          'assets',
+          'assets/stylesheets/components',
+          'assets/stylesheets/config'
         ]
       end
 
@@ -229,7 +232,7 @@ module Web
         connect-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
-        font-src 'self';
+        font-src 'self' https://fonts.gstatic.com;
         object-src 'none';
         plugin-types application/pdf;
         child-src 'self';
