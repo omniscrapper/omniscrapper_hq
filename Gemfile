@@ -20,6 +20,7 @@ group :test, :development do
   gem 'dotenv', '~> 2.4'
   gem 'rubocop'
   gem 'hanami-fabrication'
+  gem 'pry', '~> 0.12.2'
 end
 
 group :test do

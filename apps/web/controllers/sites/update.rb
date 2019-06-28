@@ -7,6 +7,7 @@ module Web
         expose :site
 
         params do
+          required(:id).filled(:int?)
           required(:site).schema do
             required(:name).filled(:str?)
             required(:url).filled(:str?)
@@ -14,8 +15,8 @@ module Web
         end
 
         def call(params)
+          @site = SiteRepository.new.find(params[:id])
           if params.valid?
-            @site = SiteRepository.new.find(params[:id])
             SiteRepository.new.update(@site.id, params[:site])
 
             redirect_to "/sites/#{@site.id}"
