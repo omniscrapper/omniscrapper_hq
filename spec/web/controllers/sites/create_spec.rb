@@ -5,6 +5,7 @@ RSpec.describe Web::Controllers::Sites::Create, type: :action do
   after do
     repository.clear
   end
+
   context 'with valid params' do
     let(:attributes) { Fabricate.attributes_for(:site) }
 
