@@ -2,7 +2,7 @@ RSpec.describe Web::Controllers::Sites::Create, type: :action do
   let(:action) { described_class.new }
   let(:repository) { SiteRepository.new }
 
-  before do
+  after do
     repository.clear
   end
   context 'with valid params' do
@@ -15,9 +15,7 @@ RSpec.describe Web::Controllers::Sites::Create, type: :action do
 
     it 'creates a new site' do
       action.call(site: attributes)
-      site = repository.last
-
-      expect(site.id).to_not be_nil
+      expect(action.site.id).to_not be_nil
     end
   end
 

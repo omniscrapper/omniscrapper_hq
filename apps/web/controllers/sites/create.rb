@@ -15,7 +15,7 @@ module Web
 
         def call(params)
           if params.valid?
-            site = SiteRepository.new.create(params[:site])
+            @site = SiteRepository.new.create(params[:site])
 
             redirect_to "/sites/#{site.id}"
           else
