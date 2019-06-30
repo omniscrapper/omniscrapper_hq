@@ -8,7 +8,7 @@ module Web
           @site = SiteRepository.new.find(params[:id])
           SiteRepository.new.delete(@site.id)
 
-          redirect_to '/sites'
+          redirect_to routes.sites_path
         end
       end
     end

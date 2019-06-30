@@ -19,7 +19,7 @@ module Web
             @site = SiteRepository.new.find(params[:id])
             SiteRepository.new.update(@site.id, params[:site])
 
-            redirect_to "/sites/#{@site.id}"
+            redirect_to routes.site_path(@site.id)
           else
             self.status = 422
           end
