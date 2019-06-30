@@ -29,11 +29,6 @@ RSpec.describe Web::Controllers::Sites::Create, type: :action do
       expect(response[0]).to eq(422)
     end
 
-    it 'redirects if form is not valid' do
-      response = action.call(attributes)
-      
-    end
-
     it 'dumps errors in params' do
       action.call(attributes)
       errors = action.params.errors
