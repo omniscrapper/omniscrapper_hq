@@ -8,6 +8,10 @@ class SiteRepository < Hanami::Repository
   end
 
   def find_with_schemas(id)
-    aggregate(:schemas).where(id: id).as(Site).one
+    aggregate(:schemas).where(id: id).map_to(Site).one
+  end
+
+  def add_schema(site, data)
+    assoc(:schemas, site).add(data)
   end
 end

@@ -1,4 +1,4 @@
 Fabricator(:site) do
-  name { "site" }
+  name { "camelot" }
   url { "test" }
 end
