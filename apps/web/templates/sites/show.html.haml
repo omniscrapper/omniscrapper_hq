@@ -1,0 +1,6 @@
+.container
+  %h3= site.name
+  %h3= site.url
+  = link_to 'Update', routes.edit_site_path(site.id)
+  = form_for :site, routes.site_path(site.id), method: :delete do
+    - submit 'Delete'

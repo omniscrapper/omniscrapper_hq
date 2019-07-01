@@ -2,4 +2,5 @@
   %h1 Sites
   %ul
     - sites.each do |site|
-      = site.name
+      %li= link_to site.name, routes.site_path(site.id)
+  = link_to 'Create new site', routes.new_site_path

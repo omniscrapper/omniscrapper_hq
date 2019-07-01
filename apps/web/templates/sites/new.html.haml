@@ -1,0 +1,16 @@
+.container
+  %h2 Add site
+
+  - unless params.valid?
+    .errors
+    %h5 There was a problem with your submission
+    %ul
+      - params.error_messages.each do |message|
+        = message
+
+  = form_for :site, routes.sites_path do
+    - label :name
+    - text_field :name
+    - label :url
+    - text_field :url
+    - submit 'Create'
