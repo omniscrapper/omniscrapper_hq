@@ -1,6 +1,7 @@
 require 'bundler/setup'
 require 'hanami/setup'
 require 'hanami/model'
+require_relative './initializers/inflectors'
 require_relative '../lib/omniscrapper_hq'
 require_relative '../apps/web/application'
 
