@@ -3,7 +3,7 @@ class SchemaRepository < Hanami::Repository
     has_many :scraping_tasks
   end
 
-  def find_with_scraping_task(id)
+  def find_with_scraping_tasks(id)
     aggregate(:scraping_tasks).where(id: id).map_to(Schema).one
   end
 
