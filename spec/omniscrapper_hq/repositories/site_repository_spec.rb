@@ -4,7 +4,7 @@ RSpec.describe SiteRepository, type: :repository do
 
   context '.find_with_scraping_tasks' do
     it 'finds schema with scraping task' do
-      task = Fabricate(:scraping_task)
+      task = Fabricate(:scraping_tasks)
       Fabricate(:site_task_relationship, site_id: site.id, scraping_task_id: task.id)
 
       site_with_task = repository.find_with_scraping_tasks(site.id)

@@ -1,11 +1,11 @@
 RSpec.describe ScrapingScheduleRepository, type: :repository do
   let(:repository) { described_class.new }
   let(:schedule) { Fabricate(:scraping_schedule) }
-  let(:task_attributes) { Fabricate.attributes_for(:scraping_task) }
+  let(:task_attributes) { Fabricate.attributes_for(:scraping_tasks) }
 
   context '.find_with_scraping_tasks' do
     it 'finds schedule with scraping task' do
-      task = Fabricate(:scraping_task, scraping_schedule_id: schedule.id)
+      task = Fabricate(:scraping_tasks, scraping_schedule_id: schedule.id)
 
       schedule_with_task = repository.find_with_scraping_tasks(schedule.id)
       expect(schedule_with_task.scraping_tasks).to eq [task]

@@ -1,0 +1,6 @@
+.container
+  %h1 Tasks
+  %ul
+    - scraping_tasks.each do |task|
+      %li= link_to task.name, routes.scraping_task_path(task.id)
+  = link_to 'Create new task', routes.new_scraping_task_path
