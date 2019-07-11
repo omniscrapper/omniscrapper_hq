@@ -5,7 +5,7 @@ module Web
         include Web::Action
         expose :scraping_tasks
 
-        def call(params)
+        def call(_params)
           @scraping_tasks = ScrapingTaskRepository.new.all
         end
       end

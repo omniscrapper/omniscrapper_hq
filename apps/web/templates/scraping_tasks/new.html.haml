@@ -13,12 +13,15 @@
     - text_field :name
     - h3 do
       - 'Schedule'
-    - label :time
-    - text_field :time
-    - label :interval
-    - number_field :interval
+    - fields_for :scraping_schedule do
+      - label :time
+      - text_field :time
+      - label :interval
+      - number_field :interval
+
     - h3 do
       - 'Schema'
-    - label :metadata
-    - text_field :metadata
+    - fields_for :schema do
+      - label :metadata
+      - text_field :metadata
     - submit 'Create'
