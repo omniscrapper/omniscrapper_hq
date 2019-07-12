@@ -1,15 +1,14 @@
 class ScrapingTaskCreator
-  attr_reader :task, :schedule, :schema
+  attr_reader :task, :schedule, :schema, :params
 
   def initialize(params)
+    @params = params
+  end
+
+  def call
     @schedule = create_schedule(params[:scraping_schedule])
     @schema = create_schema(params[:schema])
     @task = create_task(schedule, schema, params)
-  end
-
-  def self.call(params)
-    service = new(params)
-    return service.task
   end
 
   def create_schedule(data)
@@ -17,7 +16,7 @@ class ScrapingTaskCreator
   end
 
   def create_schema(data)
-    SchemaRepository.new.create(metadata: JSON.parse(data[:metadata]))
+    SchemaRepository.new.create(data)
   end
 
   def create_task(schedule, schema, data)

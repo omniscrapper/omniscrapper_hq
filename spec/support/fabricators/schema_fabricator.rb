@@ -1,3 +1,3 @@
 Fabricator(:schema) do
-  metadata  { { type: 'hello' } }
+  metadata  { { type: "object", properties: { a: { type: "integer"} } } }
 end

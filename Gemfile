@@ -8,6 +8,7 @@ gem 'pg'
 gem 'sass', '~> 3.4', '>= 3.4.22'
 gem 'bootstrap', '~> 4.3.1'
 gem 'haml'
+gem 'json-schema'
 
 group :development do
   # Code reloading
