@@ -1,0 +1,27 @@
+.container
+  %h2 Add task
+
+  - unless params.valid?
+    .errors
+    %h5 There was a problem with your submission
+    %ul
+      - params.error_messages.each do |message|
+        = message
+
+  = form_for :scraping_task, routes.scraping_tasks_path do
+    - label :name
+    - text_field :name
+    - h3 do
+      - 'Schedule'
+    - fields_for :scraping_schedule do
+      - label :time
+      - text_field :time
+      - label :interval
+      - number_field :interval
+
+    - h3 do
+      - 'Schema'
+    - fields_for :schema do
+      - label :metadata
+      - text_field :metadata
+    - submit 'Create'
