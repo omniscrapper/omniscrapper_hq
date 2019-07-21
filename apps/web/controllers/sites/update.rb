@@ -15,8 +15,8 @@ module Web
         end
 
         def call(params)
+          @site = SiteRepository.new.find(params[:id])
           if params.valid?
-            @site = SiteRepository.new.find(params[:id])
             SiteRepository.new.update(@site.id, params[:site])
 
             redirect_to routes.site_path(@site.id)

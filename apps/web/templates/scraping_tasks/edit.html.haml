@@ -1,0 +1,15 @@
+.container
+  %h2 Edit task
+
+  - unless params.valid?
+    .errors
+    %h5 There was a problem with your submission
+    %ul
+      - params.error_messages.each do |message|
+        = message
+
+  = form_for :scraping_task, routes.scraping_task_path(scraping_task.id), method: :patch do
+    - label :name
+    - text_field :name, value: scraping_task.name
+
+    - submit 'Update'

@@ -1,0 +1,5 @@
+.container
+  %h3= scraping_task.name
+  = link_to 'Update', routes.edit_scraping_task_path(scraping_task.id)
+  = form_for :scraping_task, routes.scraping_task_path(scraping_task.id), method: :delete do
+    - submit 'Delete'
