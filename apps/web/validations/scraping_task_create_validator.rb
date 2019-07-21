@@ -1,10 +1,7 @@
-class ScrapingTasksValidator
+class ScrapingTaskCreateValidator
   include Hanami::Validations
 
-  predicate :schema?, message: 'this is not valid schema' do |criterion|
-    meta = JSON::Validator.validator_for_name("draft4").metaschema
-    JSON::Validator.validate(meta, criterion)
-  end
+  predicates SchemaPredicate
 
   validations do
     required(:scraping_task).schema do

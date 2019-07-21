@@ -1,4 +1,4 @@
-RSpec.describe ScrapingTasksValidator do
+RSpec.describe ScrapingTaskCreateValidator do
   let(:action) { described_class }
 
   it 'is valid' do
