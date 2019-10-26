@@ -146,6 +146,7 @@ module Web
         #
         sources << [
           'assets',
+          'assets/img',
           'assets/stylesheets/components',
           'assets/stylesheets/config'
         ]
@@ -229,7 +230,7 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' https://kit.fontawesome.com;
+        script-src 'self' 'unsafe-inline' https://kit.fontawesome.com;
         connect-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;

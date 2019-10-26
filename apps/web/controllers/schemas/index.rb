@@ -1,13 +1,13 @@
 module Web
   module Controllers
-    module Sites
+    module Schemas
       class Index
         include Web::Action
 
-        expose :sites
+        expose :schemas
 
-        def call(_params)
-          @sites = SiteRepository.new.all
+        def call(params)
+          @schemas = SchemaRepository.new.all
         end
       end
     end
