@@ -1,10 +1,13 @@
 module Web
   module Controllers
-    module ScrapingTasks
-      class Show
+    module Schemas
+      class Index
         include Web::Action
 
+        expose :schemas
+
         def call(params)
+          @schemas = SchemaRepository.new.all
         end
       end
     end

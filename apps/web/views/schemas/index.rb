@@ -1,9 +1,8 @@
 module Web
   module Views
-    module Sites
-      class Destroy
+    module Schemas
+      class Index
         include Web::View
-        template 'sites/show'
       end
     end
   end

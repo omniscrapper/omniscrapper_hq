@@ -1,6 +1,6 @@
-.container
-  %h2 Edit site
+%h2= site.name
 
+.actions
   - unless params.valid?
     .errors
     %h5 There was a problem with your submission
@@ -8,9 +8,14 @@
       - params.error_messages.each do |message|
         = message
 
-  = form_for :site, routes.site_path(site.id), method: :patch do
+= form_for :site, routes.site_path(site.id), method: :patch do
+  - div class: 'form-group' do
     - label :name
-    - text_field :name, value: site.name
+    - text_field :name, value: site.name, class: 'form-control'
+
+  - div class: 'form-group' do
     - label :url
-    - url_field :url, value: site.url
-    - submit 'Update'
+    - url_field :url, value: site.url, class: 'form-control'
+
+  - div class: 'form-group' do
+    - submit 'Update', class: 'btn btn-primary'

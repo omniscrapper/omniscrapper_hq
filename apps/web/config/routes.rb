@@ -1,3 +1,4 @@
 root to: 'home#index'
 resources :sites
-resources :scraping_tasks
+resources :schemas
+get '/schemas/new', to: 'schemas#new'

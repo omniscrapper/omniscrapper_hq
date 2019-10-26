@@ -1,0 +1,15 @@
+.actions
+  = link_to 'Add schema', routes.new_schema_path, class: 'btn btn-success'
+
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Name
+      %th
+  %tbody
+    - schemas.each do |schema|
+      %tr
+        %td= link_to schema.name, routes.schema_path(schema.id)
+        %td
+          = edit_button(routes.edit_schema_path(schema.id))
+          = remove_button(routes.schema_path(schema.id))

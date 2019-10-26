@@ -1,6 +1,17 @@
-.container
-  %h3= site.name
-  %h3= site.url
-  = link_to 'Update', routes.edit_site_path(site.id)
-  = form_for :site, routes.site_path(site.id), method: :delete do
-    - submit 'Delete'
+%h2= site.name
+
+.actions
+  = link_to 'All sites', routes.sites_path, class: 'btn btn-primary'
+  = edit_button(routes.edit_site_path(site.id))
+  = remove_button(routes.site_path(site.id))
+
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Name
+      %th Url
+  %tbody
+    %tr
+      %td= site.name
+      %td= link_to site.url, site.url, target: '_blank'
+

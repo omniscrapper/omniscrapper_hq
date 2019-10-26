@@ -1,7 +1,7 @@
 module Web
   module Views
-    module ScrapingTasks
-      class Edit
+    module Schemas
+      class New
         include Web::View
       end
     end

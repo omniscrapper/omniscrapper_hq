@@ -1,0 +1,46 @@
+.container
+  %h2 Add schema
+
+  - unless params.valid?
+    .errors
+    %h5 There was a problem with your submission
+    %ul
+      - params.error_messages.each do |message|
+        = message
+
+= form_for :schema, routes.schemas_path, method: :post do
+  - div class: 'form-group' do
+    - label :name
+    - text_field :name, class: 'form-control'
+
+  - div class: 'jsoneditor', id: 'jsoneditor'
+
+  - div class: 'form-group' do
+    - label :definition
+    - text_area :definition, style: "width: 400px; height: 400px;", class: 'form-control'
+
+  - div class: 'form-group' do
+    - submit 'Create', class: 'btn btn-primary'
+
+
+:erb
+    <script>
+        // create the editor
+        const container = document.getElementById("jsoneditor")
+        const options = {}
+        const editor = new JSONEditor(container, options)
+
+        // set json
+        const initialJson = {
+            "Array": [1, 2, 3],
+            "Boolean": true,
+            "Null": null,
+            "Number": 123,
+            "Object": {"a": "b", "c": "d"},
+            "String": "Hello World"
+        }
+        editor.set(initialJson)
+
+        // get json
+        const updatedJson = editor.get()
+    </script>

@@ -8,9 +8,14 @@
       - params.error_messages.each do |message|
         = message
 
-  = form_for :site, routes.sites_path do
+= form_for :site, routes.sites_path, method: :post do
+  - div class: 'form-group' do
     - label :name
-    - text_field :name
+    - text_field :name, class: 'form-control'
+
+  - div class: 'form-group' do
     - label :url
-    - text_field :url
-    - submit 'Create'
+    - url_field :url, class: 'form-control'
+
+  - div class: 'form-group' do
+    - submit 'Create', class: 'btn btn-primary'

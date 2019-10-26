@@ -1,6 +1,6 @@
 module Web
   module Controllers
-    module ScrapingTasks
+    module Schemas
       class New
         include Web::Action
 
