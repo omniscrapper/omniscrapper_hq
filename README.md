@@ -1,6 +1,7 @@
-# Omniscrapper Hq
+# OmniScrapper HQ
 
-Welcome to your new Hanami project!
+Web application for OmniScrapper management.
+
 
 ## Setup
 
