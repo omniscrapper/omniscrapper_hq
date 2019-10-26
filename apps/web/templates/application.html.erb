@@ -6,11 +6,14 @@
     <title>OmniScrapper HQ</title>
     <%= favicon %>
     <%= stylesheet 'application' %>
+		<script src="https://kit.fontawesome.com/d3179d38f0.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <%= render partial: 'shared/navbar' %>
 
-    <%= yield %>
+		<div class="container">
+			<%= yield %>
+		</div>
   </body>
 </html>

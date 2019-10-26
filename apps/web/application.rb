@@ -229,11 +229,11 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self';
+        script-src 'self' https://kit.fontawesome.com;
         connect-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
-        font-src 'self' https://fonts.gstatic.com;
+        font-src https://*;
         object-src 'none';
         plugin-types application/pdf;
         child-src 'self';
