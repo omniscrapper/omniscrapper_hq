@@ -1,6 +1,14 @@
 .container
-  %h1 Sites
-  %ul
-    - sites.each do |site|
-      %li= link_to site.name, routes.site_path(site.id)
-  = link_to 'Create new site', routes.new_site_path
+  .actions
+    = link_to 'Create new site', routes.new_site_path, class: 'btn btn-primary'
+
+  %table.table.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Name
+        %th Url
+    %tbody
+      - sites.each do |site|
+        %tr
+          %td= link_to site.name, routes.site_path(site.id)
+          %td= link_to site.url, site.url, target: '_blank'
