@@ -9,6 +9,8 @@ gem 'sass', '~> 3.4', '>= 3.4.22'
 gem 'bootstrap', '~> 4.3.1'
 gem 'haml'
 gem 'json-schema'
+gem 'sidekiq'
+gem 'omni_scrapper', path: '../omni_scrapper'
 
 group :development do
   # Code reloading

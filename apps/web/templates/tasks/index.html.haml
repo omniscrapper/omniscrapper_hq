@@ -1,0 +1,19 @@
+.actions
+  = link_to 'Add task', routes.new_task_path, class: 'btn btn-success'
+
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Name
+      %th Site
+      %th Schema
+      %th
+  %tbody
+    - tasks.each do |task|
+      %tr
+        %td= link_to task.name, '#'
+        %td= link_to task.site_id, '#'
+        %td= link_to task.schema_id, '#'
+        %td
+        -#= edit_button(routes.edit_task_path(task.id))
+        -#= remove_button(routes.task_path(task.id))
