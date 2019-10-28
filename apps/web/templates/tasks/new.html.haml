@@ -18,17 +18,19 @@
       - h4 do
         - 'Crawler parameters'
 
-      - crawler_fields.each do |field_name|
-        - label field_name
-        - text_field field_name, class: 'form-control'
+      - fields_for :crawler_params do
+        - crawler_fields.each do |field_name|
+          - label field_name
+          - text_field field_name, class: 'form-control'
 
     - div class: 'form-group' do
       - h4 do
         - 'Scrapping fields'
 
-      - scrapping_fields.each do |field|
-        - label field[:name]
-        - text_field field[:name], class: 'form-control', required: field[:required]
+      - fields_for :scrapper_params do
+        - scrapping_fields.each do |field|
+          - label field[:name]
+          - text_field field[:name], class: 'form-control', required: field[:required]
 
     - div class: 'form-group' do
       - submit 'Create', class: 'btn btn-primary'
