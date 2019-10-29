@@ -1,7 +1,8 @@
 module Web
   module Views
     module Schemas
-      class Index < BaseView
+      class Create
+        include Web::View
       end
     end
   end

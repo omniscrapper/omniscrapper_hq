@@ -1,6 +1,6 @@
 module Web
   module Views
-    module Schemas
+    module Tasks
       class Index < BaseView
       end
     end
