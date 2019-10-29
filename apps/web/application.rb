@@ -20,7 +20,6 @@ module Web
       # When you add new directories, remember to add them here.
       #
       load_paths << [
-        'validations',
         'controllers',
         'views'
       ]
@@ -83,7 +82,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # Configure Rack middleware for this application
       #

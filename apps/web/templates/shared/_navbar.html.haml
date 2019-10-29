@@ -14,5 +14,11 @@
       %li.nav-item
         = link_to 'Tasks', routes.tasks_path, class: 'nav-link'
 
+.flash
+  - if flash[:error]
+    .alert.alert-danger
+      = flash[:error]
 
-
+  - if flash[:success]
+    .alert.alert-success
+      = flash[:success]

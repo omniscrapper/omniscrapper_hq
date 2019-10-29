@@ -2,14 +2,22 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'hanami',       '~> 1.3'
-gem 'hanami-model', '~> 1.3'
 
+gem 'hanami-model', '~> 1.3'
 gem 'pg'
+
 gem 'sass', '~> 3.4', '>= 3.4.22'
 gem 'bootstrap', '~> 4.3.1'
 gem 'haml'
-gem 'json-schema'
+
+gem 'dry-system', '~> 0.9.0'
+gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
+gem 'dry-monads', '~> 1.1.0'
+gem 'dry-validation'
+
 gem 'sidekiq'
+
+gem 'json-schema'
 gem 'omni_scrapper', path: '../omni_scrapper'
 
 group :development do

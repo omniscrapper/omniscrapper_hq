@@ -1,8 +1,8 @@
 module Web
   module Views
     module Tasks
-      class Create
-        include Web::View
+      class Create < Base
+        template 'tasks/new'
       end
     end
   end
