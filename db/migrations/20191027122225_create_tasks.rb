@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Hanami::Model.migration do
   change do
     create_table :tasks do
@@ -7,8 +9,8 @@ Hanami::Model.migration do
       foreign_key :site_id, :sites, on_delete: :restrict, null: false
 
       column :crawler, String, null: false
-      column :fields, "jsonb", null: false
-      column :crawler_options, "jsonb", null: false
+      column :fields, 'jsonb', null: false
+      column :crawler_options, 'jsonb', null: false
 
       column :created_at, DateTime, null: false
       column :updated_at, DateTime, null: false

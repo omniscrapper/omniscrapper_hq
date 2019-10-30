@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe SchemaRepository, type: :repository do
   let(:repository) { described_class.new }
   let(:schema) { Fabricate(:schema) }

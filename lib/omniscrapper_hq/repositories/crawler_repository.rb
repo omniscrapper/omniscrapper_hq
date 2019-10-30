@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CrawlerRepository
   def all
     data_source.all_names

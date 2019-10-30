@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Domain
   module Configuration
     # Infers from schema a list of fields that should be returned by scrapper.

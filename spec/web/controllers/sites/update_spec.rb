@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Web::Controllers::Sites::Update, type: :action do
   let(:action) { described_class.new }
   let(:repository) { SiteRepository.new }
@@ -8,7 +10,9 @@ RSpec.describe Web::Controllers::Sites::Update, type: :action do
   end
 
   context 'with valid params' do
-    let(:attributes) { { id: site.id, site: Fabricate.attributes_for(:site, name: 'hello') } }
+    let(:attributes) do
+      { id: site.id, site: Fabricate.attributes_for(:site, name: 'hello') }
+    end
 
     it 'is redirects' do
       response = action.call(attributes)

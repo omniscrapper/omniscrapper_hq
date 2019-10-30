@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Domain
   module Configuration
     # Builds a list of required fields from scrapper metadata
