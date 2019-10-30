@@ -2,18 +2,18 @@ module Domain
   module Configuration
     # Builds a list of required fields from scrapper metadata
     class Crawler
-      def initialize(scrapper_name)
-        @scrapper_name = scrapper_name
-      end
+      include Import[
+        'omniscrapper.crawlers'
+      ]
 
-      def required_fields
-        @required_fields ||= crawler_class::REQUIRED_ATTRIBUTES
+      def required_fields(crawler_name)
+        crawler_class(crawler_name)::REQUIRED_ATTRIBUTES
       end
 
       private
 
-      def crawler_class
-        OmniScrapper::Crawlers.by_name(@scrapper_name)
+      def crawler_class(crawler_name)
+        OmniScrapper::Crawlers.by_name(crawler_name)
       end
     end
   end

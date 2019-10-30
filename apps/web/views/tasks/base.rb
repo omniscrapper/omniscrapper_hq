@@ -2,6 +2,11 @@ module Web
   module Views
     module Tasks
       class Base < BaseView
+        include Import[
+          crawler_config: 'domain.configuration.crawler',
+          fields_config: 'domain.configuration.fields'
+        ]
+
         def available_schemas
           to_options SchemaRepository.new.all
         end
@@ -16,12 +21,12 @@ module Web
 
         def crawler_fields
           crawler_name = CrawlerRepository.new.first
-          Domain::Configuration::Crawler.new(crawler_name).required_fields
+          crawler_config.required_fields(crawler_name)
         end
 
         def scrapping_fields
           schema = SchemaRepository.new.first
-          Domain::Configuration::Fields.new(schema).list
+          fields_config.list(schema)
         end
 
         private
