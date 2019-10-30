@@ -5,13 +5,11 @@ module Runners
     include Sidekiq::Worker
 
     def perform
-
     end
 
     private
 
     def scrapper_schema
-
     end
   end
 end

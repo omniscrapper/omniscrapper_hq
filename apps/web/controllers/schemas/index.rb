@@ -6,7 +6,7 @@ module Web
 
         expose :schemas
 
-        def call(params)
+        def call(_params)
           @schemas = SchemaRepository.new.all
         end
       end
