@@ -5,6 +5,16 @@ module Web
         include Web::Action
         include Dry::Monads::Result::Mixin
 
+        params do
+          required(:task).schema do
+            required(:site_id).filled
+            required(:schema_id).filled
+            required(:crawler).filled
+            required(:crawler_params).filled
+            required(:scrapper_params).filled
+          end
+        end
+
         def call(params)
           result = Operations::Task::Create.new.call(params.to_hash)
 

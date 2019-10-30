@@ -2,25 +2,22 @@ module Operations
   module Task
     # Creates a simple record for desired Task.
     class Create < Base
+      include Import[
+        'domain.configuration.crawler',
+        'domain.configuration.fields',
+        task_repo: 'repositories.task'
+      ]
+
       ParamsSchema = Dry::Validation.Schema do
         required(:task).schema do
           required(:site_id).filled
           required(:schema_id).filled
           required(:crawler).filled
 
-          #required(:crawler_params).schema do
-            ## TODO: inject via dry-system
-            #Domain::Configuration::Crawler
-              #.new(crawler_name)
-              #.required_fields
-              #.each do
-
-            #end
-          #end
-
-          #required(:scrapper_params).schema do
-
-          #end
+          # TODO: find a way to bypass dry-validations inability to have dynamic keys
+          # https://github.com/dry-rb/dry-schema/issues/37
+          required(:crawler_params).filled
+          required(:scrapper_params).filled
         end
       end
 
@@ -44,6 +41,7 @@ module Operations
       end
 
       def create_task(params)
+        result = task_repo.create(params[:task])
         Success(params)
       end
     end
