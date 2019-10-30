@@ -6,7 +6,7 @@ module Web
 
         expose :tasks
 
-        def call(params)
+        def call(_params)
           @tasks = TaskRepository.new.all
         end
       end

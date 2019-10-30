@@ -9,7 +9,7 @@ module Domain
       end
 
       def list
-        @fields.map do |name, options|
+        @fields.map do |name, _options|
           {
             name: name,
             required: @required_fields.include?(name.to_s)
