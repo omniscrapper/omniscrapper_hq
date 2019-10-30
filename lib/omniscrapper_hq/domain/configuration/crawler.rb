@@ -2,6 +2,8 @@ module Domain
   module Configuration
     # Builds a list of required fields from scrapper metadata
     class Crawler
+      class CrawlerDoesNotExist < StandardError; end;
+
       include Import[
         'omniscrapper.crawlers'
       ]
@@ -13,7 +15,7 @@ module Domain
       private
 
       def crawler_class(crawler_name)
-        crawlers.by_name(crawler_name)
+        crawlers.by_name(crawler_name) || raise(CrawlerDoesNotExist, crawler_name)
       end
     end
   end
