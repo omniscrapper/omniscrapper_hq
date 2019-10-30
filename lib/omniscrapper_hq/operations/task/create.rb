@@ -1,5 +1,6 @@
 module Operations
   module Task
+    # Creates a simple record for desired Task.
     class Create < Base
       ParamsSchema = Dry::Validation.Schema do
         required(:task).schema do

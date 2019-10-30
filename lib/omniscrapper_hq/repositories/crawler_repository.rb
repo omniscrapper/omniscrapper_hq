@@ -10,6 +10,6 @@ class CrawlerRepository
   private
 
   def data_source
-    OmniScrapper::Crawlers
+    System::Container['omniscrapper.crawlers']
   end
 end
