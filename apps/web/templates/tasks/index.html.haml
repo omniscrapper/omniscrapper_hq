@@ -15,5 +15,4 @@
         %td= link_to task.site_id, '#'
         %td= link_to task.schema_id, '#'
         %td
-        -#= edit_button(routes.edit_task_path(task.id))
-        -#= remove_button(routes.task_path(task.id))
+          = button_for(routes.dry_runs_path(task_name: task.name), 'vial')
