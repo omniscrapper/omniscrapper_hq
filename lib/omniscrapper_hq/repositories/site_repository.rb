@@ -1,5 +1,5 @@
 class SiteRepository < Hanami::Repository
   associations do
-    has_many :scraping_tasks
+    has_many :tasks
   end
 end

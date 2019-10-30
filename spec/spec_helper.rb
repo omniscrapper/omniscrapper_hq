@@ -1,7 +1,10 @@
 # Require this file for unit tests
 ENV['HANAMI_ENV'] ||= 'test'
 
+require 'dry/system/stubs'
 require_relative '../config/environment'
+
+System::Container.enable_stubs!
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
 
