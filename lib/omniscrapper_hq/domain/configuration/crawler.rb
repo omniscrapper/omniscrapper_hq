@@ -13,7 +13,7 @@ module Domain
       private
 
       def crawler_class(crawler_name)
-        OmniScrapper::Crawlers.by_name(crawler_name)
+        crawlers.by_name(crawler_name)
       end
     end
   end

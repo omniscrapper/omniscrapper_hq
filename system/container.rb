@@ -11,9 +11,5 @@ module System
     register 'omniscrapper.crawlers' do
       OmniScrapper::Crawlers
     end
-
-    #configure do |config|
-      #config.env = Hanami.env
-    #end
   end
 end
