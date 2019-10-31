@@ -13,9 +13,9 @@ module Web
         end
       end
 
-      def button_for(path, action)
+      def button_for(path, level, action)
         form_for(:object, path, method: :post) do
-          submit '', class: "btn btn-primary fas fa-#{action}"
+          submit '', class: "btn btn-#{level} fas fa-#{action}"
         end
       end
     end

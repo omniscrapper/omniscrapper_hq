@@ -7,6 +7,7 @@ module System
 
     register_folder! 'omniscrapper_hq/domain/configuration'
     register_folder! 'omniscrapper_hq/repositories'
+    register_folder! 'omniscrapper_hq/operations'
 
     register 'omniscrapper.crawlers' do
       OmniScrapper::Crawlers

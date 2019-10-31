@@ -1,0 +1,13 @@
+= form_for :dry_run, routes.dry_runs_path(task_id: params[:task_id]), method: :post do
+  - div class: 'form-group' do
+    - label :url
+    - url_field :url, class: 'form-control'
+
+  - div class: 'form-group' do
+    - submit 'Run', class: 'btn btn-primary'
+
+- if result
+  %h2 Result
+  = result.data
+
+
