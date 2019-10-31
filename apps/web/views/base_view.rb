@@ -1,6 +1,6 @@
 module Web
   module Views
-    class BaseView 
+    class BaseView
       include Web::View
 
       def edit_button(path)
