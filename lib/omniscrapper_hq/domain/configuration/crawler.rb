@@ -9,7 +9,7 @@ module Domain
       ]
 
       def required_fields(crawler_name)
-        crawler_class(crawler_name)::REQUIRED_ATTRIBUTES
+        crawler_class(crawler_name).required_attributes
       end
 
       private
