@@ -12,5 +12,9 @@ module System
     register 'omniscrapper.crawlers' do
       OmniScrapper::Crawlers
     end
+
+    register 'omniscrapper.root' do
+      OmniScrapper
+    end
   end
 end

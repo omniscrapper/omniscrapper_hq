@@ -1,3 +1,6 @@
+%h2 Dry run
+%h4= task.name
+
 = form_for :dry_run, routes.dry_runs_path(task_id: params[:task_id]), method: :post do
   - div class: 'form-group' do
     - label :url
@@ -7,7 +10,9 @@
     - submit 'Run', class: 'btn btn-primary'
 
 - if result
-  %h2 Result
-  = result.data
+  .jumbotron.jumbotron-fluid
+    .container
+      %p
+        = result.data
 
 
