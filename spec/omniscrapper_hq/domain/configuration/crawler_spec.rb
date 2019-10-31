@@ -13,9 +13,7 @@ RSpec.describe Domain::Configuration::Crawler do
 
     context 'crawler exists' do
       let(:dummy_crawler) do
-        Module.new do
-          const_set('REQUIRED_ATTRIBUTES', [:a, :b, :c])
-        end
+        double(required_attributes: required_fields)
       end
 
       it 'returns list of required fields' do

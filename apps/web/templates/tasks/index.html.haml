@@ -15,4 +15,5 @@
         %td= link_to task.site_id, '#'
         %td= link_to task.schema_id, '#'
         %td
-          = button_for(routes.dry_runs_path(task_name: task.name), 'vial')
+          = button_for(routes.dry_runs_path(task_id: task.id), 'primary', 'vial')
+          = button_for(routes.single_runs_path(task_id: task.id), 'success', 'play')

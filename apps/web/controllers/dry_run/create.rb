@@ -3,11 +3,21 @@ module Web
     module DryRun
       class Create
         include Web::Action
+        include Import[
+          dry_run_create: 'operations.dry_run.perform'
+        ]
+
+        expose :result
+
+        params do
+          required(:task_id).filled
+          optional(:dry_run).schema do
+            required(:url).filled
+          end
+        end
 
         def call(params)
-          flash[:success] = "Dry run for task #{params[:task_name]} was started."
-          Workers::DryRun.perform_async
-          redirect_to routes.tasks_path
+          @result = dry_run_create.call(params) if params[:dry_run][:url]
         end
       end
     end
