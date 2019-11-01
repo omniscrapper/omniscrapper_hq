@@ -20,7 +20,7 @@ module Web
 
         def call(params)
           @task = task_repo.find(params[:task_id])
-          if params[:dry_run][:url]
+          if params.dig(:dry_run, :url)
             flash[:success] = 'Dry run was successfully performed.'
             @result = dry_run_create.call(params) 
           end

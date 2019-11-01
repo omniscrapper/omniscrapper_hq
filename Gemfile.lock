@@ -8,6 +8,7 @@ PATH
   remote: ../omni_scrapper
   specs:
     omni_scrapper (2.0.0.beta1)
+      ferrum
       mechanize
 
 GEM
@@ -55,6 +56,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    cliver (0.3.2)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
@@ -118,6 +120,11 @@ GEM
     erubi (1.8.0)
     execjs (2.7.0)
     fabrication (2.20.2)
+    ferrum (0.6.2)
+      addressable (~> 2.6)
+      cliver (~> 0.3)
+      concurrent-ruby (~> 1.1)
+      websocket-driver (>= 0.6, < 0.8)
     ffi (1.11.1)
     haml (5.0.4)
       temple (>= 0.8.0)
@@ -335,6 +342,9 @@ GEM
     url_mount (0.2.1)
       rack
     webrobots (0.1.2)
+    websocket-driver (0.7.1)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
