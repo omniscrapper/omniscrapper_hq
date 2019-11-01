@@ -11,14 +11,13 @@ module Operations
           config.schema schema.definition
           config.crawler task.crawler
 
-          config.entrypoint 'https://www.cmlt.ru/ads--rubric-88'
-          config.next_page_link '→'
-          config.page_link /ad-\w+/
-          config.id_within_site /ad-(.+)/
+          task.crawler_params.each do |name, value|
+            config.public_send(name, value)
+          end
 
-          config.field :name, selector: '//*[@id="MainContentTable"]/div[1]/table/tbody/tr/td[1]/h1/span'
-          config.field :description,
-            selector: '//*[@id="MainContentTable"]/div[1]/div/div[1]/div/div[4]'
+          task.scrapper_params.each do |name, selector|
+            config.field name.to_sym, selector: selector
+          end
         end
       end
     end

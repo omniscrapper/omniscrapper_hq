@@ -15,5 +15,6 @@
         %td= link_to task.site_id, '#'
         %td= link_to task.schema_id, '#'
         %td
+          = edit_button(routes.edit_task_path(id: task.id))
           = button_for(routes.dry_runs_path(task_id: task.id), 'primary', 'vial')
           = button_for(routes.single_runs_path(task_id: task.id), 'success', 'play')

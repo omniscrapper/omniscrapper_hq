@@ -1,36 +1,4 @@
 .container
   %h2 Add task
 
-  = form_for :task, routes.tasks_path, method: :post do
-    - h4 do
-      - 'Task parameters'
-    - div class: 'form-group' do
-      - label :site
-      - select :site_id, available_sites, class: 'form-control'
-
-      - label :schema
-      - select :schema_id, available_schemas, class: 'form-control'
-
-      - label :crawler
-      - select :crawler, available_crawlers, class: 'form-control'
-
-    - div class: 'form-group' do
-      - h4 do
-        - 'Crawler parameters'
-
-      - fields_for :crawler_params do
-        - crawler_fields.each do |field_name|
-          - label field_name
-          - text_field field_name, class: 'form-control'
-
-    - div class: 'form-group' do
-      - h4 do
-        - 'Scrapping fields'
-
-      - fields_for :scrapper_params do
-        - scrapping_fields.each do |field|
-          - label field[:name]
-          - text_field field[:name], class: 'form-control', required: field[:required]
-
-    - div class: 'form-group' do
-      - submit 'Create', class: 'btn btn-primary'
+  = render partial: 'form', locals: { url: routes.tasks_path, method: :post }

@@ -1,0 +1,4 @@
+.container
+  %h2 Edit task
+
+  = render partial: 'form', locals: { url: routes.task_path(task.id), method: :patch, task: task }

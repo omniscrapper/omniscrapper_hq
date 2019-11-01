@@ -6,7 +6,7 @@ module Workers
 
     sidekiq_options queue: :single_run, retry: false
 
-    def perform
+    def perform(task_id)
     end
   end
 end
