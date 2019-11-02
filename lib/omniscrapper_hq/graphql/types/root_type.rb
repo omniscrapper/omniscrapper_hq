@@ -11,6 +11,12 @@ module Graphql
       def task(id:)
         TaskRepository.new.find(id)
       end
+
+      # TODO: add a proper pagination here
+      field :tasks, [TaskType], null: false
+      def tasks
+        TaskRepository.new.all
+      end
     end
   end
 end
