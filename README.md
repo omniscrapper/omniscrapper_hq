@@ -2,33 +2,16 @@
 
 Web application for OmniScrapper management.
 
+It main goal is to provide:
+
+* Ability to define scrappers in UI
+* Ability to test defined scrappers from UI
+* Ability to schedule scrapping schedule
 
 ## Setup
 
-How to run tests:
+### Seeds
 
-```
-% bundle exec rake
-```
+Run `rake db:seed` to fill the database with sample data ready for testing.
 
-How to run the development console:
-
-```
-% bundle exec hanami console
-```
-
-How to run the development server:
-
-```
-% bundle exec hanami server
-```
-
-How to prepare (create and migrate) DB for `development` and `test` environments:
-
-```
-% bundle exec hanami db prepare
-
-% HANAMI_ENV=test bundle exec hanami db prepare
-```
-
-Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.1/), or jump in [chat](http://chat.hanamirb.org) for help. Enjoy! 🌸
+It will add one real site, schema and task for scrapping. Feel free to go to tasks page and run sample scrapping.

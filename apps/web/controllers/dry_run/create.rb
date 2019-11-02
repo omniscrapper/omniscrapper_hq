@@ -25,6 +25,12 @@ module Web
             @result = dry_run_create.call(params) 
           end
         end
+
+        private
+
+        def verify_csrf_token?
+          false
+        end
       end
     end
   end
