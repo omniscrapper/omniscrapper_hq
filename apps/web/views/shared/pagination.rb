@@ -11,8 +11,8 @@ module Web
           routes.path(:sites, options)
         end
 
-        def pagy_bootstrap_nav(*args)
-          _raw super
+        def pagination(*args)
+          _raw pagy_bootstrap_nav(args)
         end
       end
     end
