@@ -13,7 +13,7 @@ module Web
         expose :test_results, :pagination_data
 
         def call(_)
-          @pagination_data, @test_results = pagy test_result_repo.all
+          @pagination_data, @test_results = pagy test_result_repo
         end
       end
     end

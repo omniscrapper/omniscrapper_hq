@@ -4,15 +4,15 @@ module Web
       module Pagination
         include Pagy::Frontend
 
-        def pagy_url_for(page, pagy)
-          options = { pagy_data.vars[:page_param] => page }
-            .merge(pagy_data.vars[:params])
+        def pagy_url_for(page, pagination)
+          options = { pagination.vars[:page_param] => page }
+            .merge(pagination.vars[:params])
 
           routes.path(:sites, options)
         end
 
-        def pagination(*args)
-          _raw pagy_bootstrap_nav(args)
+        def pagination_nav(*args)
+          _raw pagy_bootstrap_nav(*args)
         end
       end
     end
