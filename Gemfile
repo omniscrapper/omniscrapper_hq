@@ -19,7 +19,8 @@ gem 'graphql'
 gem 'sidekiq'
 
 gem 'json-schema'
-gem 'omni_scrapper', path: '../omni_scrapper'
+gem 'omni_scrapper'
+gem 'pagy', '~> 3.6.0'
 
 group :development do
   gem 'shotgun', platforms: :ruby
