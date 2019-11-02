@@ -55,7 +55,7 @@ end
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'faker'
+  gem 'faker', '~> 2.6.0'
 end
 
 group :production do

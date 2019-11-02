@@ -9,8 +9,12 @@ module Web
 
         expose :schemas, :pagination_data
 
+        def initialize(repository: SchemaRepository.new)
+          @repository = repository
+        end
+
         def call(_)
-          @pagination_data, @schemas = pagy SchemaRepository.new
+          @pagination_data, @schemas = pagy @repository
         end
       end
     end
