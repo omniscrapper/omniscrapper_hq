@@ -7,10 +7,10 @@ module Web
         include Web::Action
         include Controllers::Shared::Pagination
 
-        expose :sites, :pagy_data
+        expose :sites, :pagination_data
 
         def call(_)
-          @pagy_data, @sites = pagy SiteRepository.new
+          @pagination_data, @sites = pagy SiteRepository.new
         end
       end
     end
