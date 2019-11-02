@@ -49,11 +49,13 @@ group :test, :development do
   gem 'rubocop'
   gem 'hanami-fabrication'
   gem 'pry', '~> 0.12.2'
+  gem 'pry-byebug', '~> 3.7.0'
 end
 
 group :test do
   gem 'rspec'
   gem 'capybara'
+  gem 'faker'
 end
 
 group :production do

@@ -31,6 +31,10 @@ module Web
         def verify_csrf_token?
           false
         end
+
+        def bind(_)
+          binding.pry
+        end
       end
     end
   end
