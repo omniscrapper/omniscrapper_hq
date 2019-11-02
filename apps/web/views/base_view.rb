@@ -18,6 +18,12 @@ module Web
           submit '', class: "btn btn-#{level} fas fa-#{action}"
         end
       end
+
+      def text_button(text, path, level, method: :post)
+        form_for(:object, path, method: method) do
+          submit text, class: "btn btn-#{level}"
+        end
+      end
     end
   end
 end

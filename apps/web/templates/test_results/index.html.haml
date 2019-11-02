@@ -1,0 +1,21 @@
+.actions
+  = text_button 'Clear', routes.clear_test_results_path, 'danger', method: :delete
+
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Task ID
+      %th Scrapper
+      %th Checksum
+      %th Url
+      %th Data
+      %th Timestamp
+  %tbody
+    - test_results.each do |test_result|
+      %tr
+        %td= link_to test_result.task_id, routes.edit_task_path(test_result.task_id)
+        %td= test_result.scrapper_name
+        %td= test_result.checksum
+        %td= test_result.uri
+        %td= test_result.data
+        %td= test_result.created_at
