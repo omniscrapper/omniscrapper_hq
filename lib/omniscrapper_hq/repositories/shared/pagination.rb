@@ -6,8 +6,12 @@ module OmniscrapperHq
           root.count
         end
 
-        def page(offset, size)
-          root.offset(offset).limit(size).to_a
+        def offset(size)
+          root.offset(size)
+        end
+
+        def limit(size)
+          root.limit(size)
         end
       end
     end
