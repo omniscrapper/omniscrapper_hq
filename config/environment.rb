@@ -1,13 +1,18 @@
 require 'bundler/setup'
 require 'hanami/setup'
 require 'hanami/model'
+require 'hanami/middleware/body_parser'
 require_relative '../system/import'
 require_relative './initializers/inflectors'
 require_relative '../lib/omniscrapper_hq'
 require_relative '../apps/web/application'
+require_relative '../apps/api/application'
 
 Hanami.configure do
+  mount Api::Application, at: '/api'
   mount Web::Application, at: '/'
+
+  middleware.use Hanami::Middleware::BodyParser, :json
 
   model do
     ##

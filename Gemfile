@@ -15,14 +15,13 @@ gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 gem 'dry-monads', '~> 1.1.0'
 gem 'dry-validation'
 
+gem 'graphql'
 gem 'sidekiq'
 
 gem 'json-schema'
 gem 'omni_scrapper', path: '../omni_scrapper'
 
 group :development do
-  # Code reloading
-  # See: http://hanamirb.org/guides/projects/code-reloading
   gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
 end
@@ -40,5 +39,5 @@ group :test do
 end
 
 group :production do
-  # gem 'puma'
+  gem 'puma'
 end

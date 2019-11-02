@@ -126,6 +126,7 @@ GEM
       concurrent-ruby (~> 1.1)
       websocket-driver (>= 0.6, < 0.8)
     ffi (1.11.1)
+    graphql (1.9.15)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -221,6 +222,7 @@ GEM
     net-http-digest_auth (1.4.1)
     net-http-persistent (3.1.0)
       connection_pool (~> 2.2)
+    nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     ntlm-http (0.1.1)
@@ -233,6 +235,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.1.0)
+    puma (4.2.1)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
@@ -359,6 +363,7 @@ DEPENDENCIES
   dry-system (~> 0.9.0)
   dry-system-hanami!
   dry-validation
+  graphql
   haml
   hanami (~> 1.3)
   hanami-fabrication
@@ -368,6 +373,7 @@ DEPENDENCIES
   omni_scrapper!
   pg
   pry (~> 0.12.2)
+  puma
   rake
   rspec
   rubocop
