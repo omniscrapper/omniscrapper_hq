@@ -11,7 +11,7 @@
   %tbody
     - tasks.each do |task|
       %tr
-        %td= link_to task.name, '#'
+        %td= link_to task.id, '#'
         %td= link_to task.site_id, '#'
         %td= link_to task.schema_id, '#'
         %td
