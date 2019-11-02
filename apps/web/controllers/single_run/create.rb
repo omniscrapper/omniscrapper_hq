@@ -10,6 +10,12 @@ module Web
           Workers::SingleRun.perform_async(task.id)
           redirect_to routes.tasks_path
         end
+
+        private
+
+        def verify_csrf_token?
+          false
+        end
       end
     end
   end
