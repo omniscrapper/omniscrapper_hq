@@ -1,5 +1,7 @@
 # OmniScrapper HQ
 
+<img src="https://i.imgur.com/8r3Sb82.png" width="300" height="300">
+
 Web application for OmniScrapper management.
 
 It main goal is to provide:
