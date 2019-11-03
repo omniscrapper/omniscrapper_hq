@@ -6,4 +6,17 @@ class SiteRepository < Hanami::Repository
   associations do
     has_many :tasks
   end
+
+  def delete_with_dependencies(id)
+    delete_dependent_tasks(id)
+    delete(id)
+  end
+
+  def delete_dependent_tasks(id)
+    TaskRepository.new.root.where(site_id: id).delete
+  end
+
+  def find_with_tasks(id)
+    aggregate(:tasks).where(id: id).map_to(Site).one
+  end
 end

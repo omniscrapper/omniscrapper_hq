@@ -5,10 +5,16 @@ module Web
         include Web::Action
 
         def call(params)
-          @site = SiteRepository.new.find(params[:id])
-          SiteRepository.new.delete(@site.id)
+          @site = repo.find(params[:id])
+          repo.delete_with_dependencies(@site.id)
 
           redirect_to routes.sites_path
+        end
+
+        private
+
+        def repo
+          @repo ||= SiteRepository.new
         end
       end
     end
