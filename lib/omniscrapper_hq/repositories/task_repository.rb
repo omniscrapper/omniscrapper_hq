@@ -15,6 +15,6 @@ class TaskRepository < Hanami::Repository
   end
 
   def delete_dependent_test_results(id)
-    TestResultRepository.new.root.where(task_id: id).delete
+    TestResultRepository.new.delete_related_to(task_id: id)
   end
 end
