@@ -22,8 +22,10 @@ gem 'json-schema'
 gem 'pagy', '~> 3.6.0'
 
 # Omniscrapper gems
-gem 'omni_scrapper', github: 'omniscrapper/omni_scrapper' #,path: '../omni_scrapper'
-gem 'omniscrapper_output', github: 'omniscrapper/output'
+gem 'omni_scrapper', path: '../omni_scrapper'#github: 'omniscrapper/omni_scrapper' #,path: '../omni_scrapper'
+# TODO: Latest dry-types from output gem is not compatible
+# with dry-types version used by hanami.
+#gem 'omniscrapper_output', github: 'omniscrapper/output'
 
 group :development do
   gem 'shotgun', platforms: :ruby
