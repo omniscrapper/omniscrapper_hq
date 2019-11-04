@@ -19,8 +19,11 @@ gem 'graphql'
 gem 'sidekiq'
 
 gem 'json-schema'
-gem 'omni_scrapper'
 gem 'pagy', '~> 3.6.0'
+
+# Omniscrapper gems
+gem 'omni_scrapper', github: 'omniscrapper/omni_scrapper' #,path: '../omni_scrapper'
+gem 'omniscrapper_output', github: 'omniscrapper/output'
 
 group :development do
   gem 'shotgun', platforms: :ruby
