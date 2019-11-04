@@ -3,18 +3,15 @@ module Web
     module Sites
       class Destroy
         include Web::Action
+        include Import[
+            site_repo: 'repositories.site'
+        ]
 
         def call(params)
-          @site = repo.find(params[:id])
-          repo.delete_with_dependencies(@site.id)
+          @site = site_repo.find(params[:id])
+          site_repo.delete_with_dependencies(@site.id)
 
           redirect_to routes.sites_path
-        end
-
-        private
-
-        def repo
-          @repo ||= SiteRepository.new
         end
       end
     end
