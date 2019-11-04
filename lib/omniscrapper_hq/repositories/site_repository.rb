@@ -13,6 +13,6 @@ class SiteRepository < Hanami::Repository
   end
 
   def delete_dependent_tasks(id)
-    TaskRepository.new.root.where(site_id: id).delete
+    TaskRepository.new.delete_related_to(site_id: id)
   end
 end

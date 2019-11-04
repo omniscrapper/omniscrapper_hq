@@ -7,4 +7,8 @@ class TaskRepository < Hanami::Repository
     belongs_to :schema
     belongs_to :site
   end
+
+  def delete_related_to(options)
+    root.where(options).delete
+  end
 end
