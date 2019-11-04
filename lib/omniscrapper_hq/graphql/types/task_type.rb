@@ -16,6 +16,11 @@ module Graphql
         SchemaRepository.new.find(object.schema_id)
       end
 
+      field :output, OutputType, null: false
+      def output
+        OutputRepository.new.find(object.output_id)
+      end
+
       field :crawler_params, String, null: false
       def crawler_params
         JSON.generate(object.crawler_params)

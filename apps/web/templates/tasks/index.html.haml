@@ -18,5 +18,6 @@
           = edit_button(routes.edit_task_path(id: task.id))
           = button_for(routes.dry_runs_path(task_id: task.id), 'primary', 'vial')
           = button_for(routes.single_runs_path(task_id: task.id), 'success', 'play')
+          = remove_button(routes.task_path(task.id))
 
 = pagination_nav(pagination_data)

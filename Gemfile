@@ -1,5 +1,16 @@
 source 'https://rubygems.org'
 
+# NOTICE: quite often you need to use local copy of gem, which is mounted by path for some debugging.
+# Almost always I forget to change it back to github version when I commit code.
+# This thing allows to use local version whenever USE_LOCAL_GEMS variable is defined.
+def try_local(gem_name)
+  if ENV['USE_LOCAL_GEMS']
+    gem gem_name, path: "../#{gem_name}"
+  else
+    gem gem_name, github: "omniscrapper/#{gem_name}"
+  end
+end
+
 gem 'rake'
 gem 'hanami',       '~> 1.3'
 
@@ -19,8 +30,14 @@ gem 'graphql'
 gem 'sidekiq'
 
 gem 'json-schema'
-gem 'omni_scrapper'
 gem 'pagy', '~> 3.6.0'
+
+# Omniscrapper gems
+try_local 'omni_scrapper'
+
+# TODO: Latest dry-types from output gem is not compatible
+# with dry-types version used by hanami.
+#try_local 'omniscrapper_output'
 
 group :development do
   gem 'shotgun', platforms: :ruby
