@@ -1,0 +1,13 @@
+= form_for :output, url, method: method, values: { output: output } do
+  - div class: 'form-group' do
+    - label :adapter
+    - select :adapter, adapters, class: 'form-control'
+
+  - fields_for :adapter_params do
+    - outputs_configuration[:kafka].each do |field_name, config|
+      - div class: 'form-group' do
+        - label field_name
+        - text_field field_name, class: 'form-control', required: config[:required]
+
+  - div class: 'form-group' do
+    - submit 'Submit', class: 'btn btn-primary'

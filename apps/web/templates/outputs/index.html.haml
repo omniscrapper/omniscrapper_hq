@@ -1,0 +1,13 @@
+.actions
+  = link_to 'Create output', routes.new_output_path, class: 'btn btn-success'
+
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th ID
+      %th Adapter
+  %tbody
+    - outputs.each do |output|
+      %tr
+        %td= output.id
+        %td= output.adapter
