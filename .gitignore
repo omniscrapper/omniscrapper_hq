@@ -2,6 +2,7 @@
 /tmp
 .idea/
 .env
+.env.development
 .DS_Store
 .bundle
 .vscode
