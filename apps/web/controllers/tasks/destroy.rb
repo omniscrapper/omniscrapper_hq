@@ -3,18 +3,15 @@ module Web
     module Tasks
       class Destroy
         include Web::Action
+        include Import[
+            task_repo: 'repositories.task'
+        ]
 
         def call(params)
-          task = repo.find(params[:id])
-          repo.delete(task.id)
+          task = task_repo.find(params[:id])
+          task_repo.delete_with_dependencies(task.id)
 
           redirect_to routes.tasks_path
-        end
-
-        private
-
-        def repo
-          @repo ||= TaskRepository.new
         end
       end
     end
