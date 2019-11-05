@@ -42,6 +42,9 @@ try_local 'omni_scrapper'
 group :development do
   gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
+  gem 'guard', '~> 2.16.0', require: false
+  gem 'terminal-notifier-guard', '~> 1.7.0', require: false
+  gem 'guard-rspec', '~> 4.7.0', require: false
 end
 
 group :test, :development do

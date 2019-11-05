@@ -6,6 +6,8 @@ require_relative '../config/environment'
 require 'simplecov'
 
 System::Container.enable_stubs!
+System::Container.finalize!
+
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
 
