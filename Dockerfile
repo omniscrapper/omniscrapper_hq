@@ -7,7 +7,7 @@ WORKDIR /app
 ENV RACK_ENV=production
 ENV HANAMI_ENV=production
 
-RUN gem install foreman
+RUN gem install foreman bundler
 RUN bundle install
 RUN hanami assets precompile
 
