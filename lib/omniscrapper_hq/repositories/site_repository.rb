@@ -7,12 +7,7 @@ class SiteRepository < Hanami::Repository
     has_many :tasks
   end
 
-  def delete_with_dependencies(id)
-    delete_dependent_tasks(id)
-    delete(id)
-  end
-
-  def delete_dependent_tasks(id)
-    TaskRepository.new.delete_related_to(site_id: id)
+  def find_with_tasks(id)
+    aggregate(:tasks).where(id: id).map_to(Site).one
   end
 end

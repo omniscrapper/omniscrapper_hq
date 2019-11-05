@@ -9,12 +9,6 @@ class TaskRepository < Hanami::Repository
     belongs_to :site
   end
 
-  def delete_related_to(options)
-    root.where(options).each do |task|
-      delete_with_dependencies(task.id)
-    end
-  end
-
   def delete_with_dependencies(id)
     delete_dependent_test_results(id)
     delete(id)
