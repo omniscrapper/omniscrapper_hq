@@ -6,4 +6,8 @@ class SiteRepository < Hanami::Repository
   associations do
     has_many :tasks
   end
+
+  def find_with_tasks(id)
+    aggregate(:tasks).where(id: id).map_to(Site).one
+  end
 end
