@@ -9,7 +9,17 @@ System::Container.enable_stubs!
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/bin/'
+  add_filter '/db/'
+  add_filter '/spec/'
+  add_filter '/test/'
+
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Models', 'app/models'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Libraries', 'lib'
+end
 
 RSpec.configure do |config|
 
