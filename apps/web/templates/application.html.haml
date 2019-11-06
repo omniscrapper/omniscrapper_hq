@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html;charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %title OmniScrapper HQ
+    = favicon
+    = stylesheet 'application'
+    = javascript 'jsoneditor.min'
+    %script{:crossorigin => "anonymous", :src => "https://kit.fontawesome.com/d3179d38f0.js"}
+  %body
+    = render partial: 'shared/navbar'
+    .container
+      = yield
