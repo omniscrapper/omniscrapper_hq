@@ -4,14 +4,18 @@ module Web
       module Pagination
         include Pagy::Frontend
 
-        def pagination_nav(data)
-          _raw pagy_bootstrap_nav(data)
-        end
+        def self.included(view)
+          view.class_eval do
+            def pagination_nav(data)
+              _raw pagy_bootstrap_nav(data)
+            end
 
-        private
+            private
 
-        def request
-          params.env['router.request'].rack_request
+            def request
+              params.env['router.request'].rack_request
+            end
+          end
         end
       end
     end

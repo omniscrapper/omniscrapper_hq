@@ -2,6 +2,9 @@ require 'sass'
 require 'hanami/helpers'
 require 'hanami/assets'
 
+require_relative './views/shared/pagination'
+require_relative './views/shared/components'
+
 module Web
   class Application < Hanami::Application
     configure do
@@ -145,7 +148,6 @@ module Web
         #
         sources << [
           'assets',
-          'assets/img',
           'assets/stylesheets/components',
           'assets/stylesheets/config'
         ]
@@ -261,6 +263,8 @@ module Web
       view.prepare do
         include Hanami::Helpers
         include Web::Assets::Helpers
+        include Web::Views::Shared::Pagination
+        include Web::Views::Shared::Components
       end
     end
 
@@ -287,6 +291,8 @@ module Web
       # scheme 'https'
       # host   'example.org'
       # port   443
+
+      handle_exceptions (ENV['HANDLE_EXCEPTIONS'] ? true : false)
 
       assets do
         # Don't compile static assets in production mode (eg. Sass, ES6)

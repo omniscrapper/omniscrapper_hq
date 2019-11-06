@@ -1,7 +1,8 @@
 module Web
   module Views
     module Outputs
-      class Index < Base
+      class Index
+        include Web::View
       end
     end
   end

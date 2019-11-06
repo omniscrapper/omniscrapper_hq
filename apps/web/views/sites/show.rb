@@ -1,7 +1,8 @@
 module Web
   module Views
     module Sites
-      class Show < BaseView
+      class Show
+        include Web::View
       end
     end
   end
