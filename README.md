@@ -14,9 +14,9 @@ It main goal is to provide:
 
 ### Start
 
-Copy env variables `cp .env.development.sample .env.development`
-Run `make db-prepare` it  will create db, run migrations and fill database with data
-To start the server run `make server`
+* Copy env variables `cp .env.development.sample .env.development`
+* Run `make db-prepare` it  will create db, run migrations and fill database with data
+* To start the server run `make server`
 
 ### Seeds
 
