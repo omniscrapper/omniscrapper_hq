@@ -3,10 +3,13 @@ ENV['HANAMI_ENV'] ||= 'test'
 
 require 'dry/system/stubs'
 require_relative '../config/environment'
+require 'simplecov'
 
 System::Container.enable_stubs!
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
+
+SimpleCov.start
 
 RSpec.configure do |config|
 
