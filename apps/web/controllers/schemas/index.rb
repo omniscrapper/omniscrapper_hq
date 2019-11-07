@@ -6,15 +6,14 @@ module Web
       class Index
         include Web::Action
         include Controllers::Shared::Pagination
+        include Import[
+          schema_repo: 'repositories.schema'
+        ]
 
         expose :schemas, :pagination_data
 
-        def initialize(repository: SchemaRepository.new)
-          @repository = repository
-        end
-
         def call(_)
-          @pagination_data, @schemas = pagy @repository
+          @pagination_data, @schemas = pagy schema_repo
         end
       end
     end
