@@ -12,6 +12,11 @@ It main goal is to provide:
 
 ## Setup
 
+### Demo
+If you want just to see how the application works, you can use dockerized setup to start project with a single command.
+
+Just run `docker-compose up` in the directory of project, and they visit [localhost:2300](http://localhost:2300).
+
 ### Start
 
 * Copy env variables `cp .env.development.sample .env.development`
