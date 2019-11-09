@@ -8,7 +8,7 @@ class OutputRepository < Hanami::Repository
         kafka_host: {
           required: true
         },
-        topic: {
+        kafka_topic: {
           required: true
         }
       }
