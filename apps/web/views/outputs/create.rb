@@ -3,6 +3,7 @@ module Web
     module Outputs
       class Create
         include Web::View
+        include Base
       end
     end
   end

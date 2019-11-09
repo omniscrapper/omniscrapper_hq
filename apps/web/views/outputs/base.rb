@@ -1,14 +1,11 @@
 module Web
   module Views
     module Outputs
-      class Base
+      module Base
         include Web::View
-        include Import[
-          output_repo: 'repositories.output'
-        ]
 
         def outputs_configuration
-          output_repo.configuration
+          OutputRepository.new.configuration
         end
 
         def adapters

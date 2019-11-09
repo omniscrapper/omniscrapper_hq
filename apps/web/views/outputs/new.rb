@@ -1,7 +1,9 @@
 module Web
   module Views
     module Outputs
-      class New < Base
+      class New
+        include Web::View
+        include Base
       end
     end
   end

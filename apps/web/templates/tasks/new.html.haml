@@ -1,4 +1,4 @@
 .container
   %h2 Add task
 
-  = render partial: 'form', locals: { url: routes.tasks_path, method: :post }
+  = render partial: 'form', locals: { url: routes.tasks_path, method: :post, task: Task.new }

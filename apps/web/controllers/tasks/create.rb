@@ -9,6 +9,7 @@ module Web
           required(:task).schema do
             required(:site_id).filled
             required(:schema_id).filled
+            required(:output_id).filled
             required(:crawler).filled
             required(:crawler_params).filled
             required(:scrapper_params).filled

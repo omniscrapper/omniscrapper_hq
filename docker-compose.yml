@@ -1,0 +1,76 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: omniscrapper_hq
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+  zoo:
+    image: zookeeper:3.4.9
+    hostname: zoo
+    ports:
+      - "2181:2181"
+    environment:
+        ZOO_MY_ID: 1
+        ZOO_PORT: 2181
+        ZOO_SERVERS: server.1=zoo:2888:3888
+
+  kafka:
+    image: confluentinc/cp-kafka:5.3.1
+    hostname: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_DOCKER_INTERNAL://kafka:19092,LISTENER_DOCKER_EXTERNAL://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_DOCKER_INTERNAL:PLAINTEXT,LISTENER_DOCKER_EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_DOCKER_INTERNAL
+      KAFKA_ZOOKEEPER_CONNECT: "zoo:2181"
+      KAFKA_BROKER_ID: 1
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zoo
+
+  omniscrapper_hq:
+    image: omniscrapper/omniscrapper_hq
+    environment:
+      DATABASE_URL: "postgresql://postgres:postgres@postgres/omniscrapper_hq"
+      SERVE_STATIC_ASSETS: "true"
+      WEB_SESSIONS_SECRET: "00bdb001d8f18ee8e8e4b7d063877243348fa8cb2c3879a52052c33871f09228"
+      API_SESSIONS_SECRET: "985f2d9f9d1f729e3204d011354792a148e548f599b3554b2bedc591949240d0"
+      REDIS_URL: 'redis://redis:6379/0'
+      HANDLE_EXCEPTIONS: 'enabled'
+    ports:
+      - 2300:2300
+    depends_on:
+      - postgres
+      - redis
+
+  runner:
+    image: omniscrapper/runner
+    environment:
+      REDIS_URL: 'redis://redis:6379/0'
+      API_URL: 'http://omniscrapper_hq:2300/api/public/graphql'
+    depends_on:
+      - omniscrapper_hq
+      - redis
+      - kafka
+
+  scheduler:
+    image: omniscrapper/scheduler
+    environment:
+      REDIS_URL: 'redis://redis:6379/0'
+      API_URL: 'http://omniscrapper_hq:2300/api/public/graphql'
+    depends_on:
+      - omniscrapper_hq
+      - redis
