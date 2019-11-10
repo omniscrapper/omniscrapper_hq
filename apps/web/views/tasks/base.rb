@@ -18,13 +18,17 @@ module Web
           CrawlerRepository.new.all.map { |c| [c, c] }
         end
 
+        def available_normalizers
+          NormalizerRepository.new.all.map { |n| [n, n] }.prepend([nil, nil])
+        end
+
         def crawler_fields
           crawler_name = CrawlerRepository.new.first
           Domain::Configuration::Crawler.new.required_fields(crawler_name)
         end
 
         def scrapping_fields
-          schema = SchemaRepository.new.first
+          schema = SchemaRepository.new.last
           Domain::Configuration::Fields.new.list(schema)
         end
 

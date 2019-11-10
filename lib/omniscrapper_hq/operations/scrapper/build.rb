@@ -15,8 +15,8 @@ module Operations
             config.public_send(name, value)
           end
 
-          task.scrapper_params.each do |name, selector|
-            config.field name.to_sym, selector: selector
+          task.scrapper_params.each do |name, options|
+            config.field name.to_sym, options
           end
         end
       end

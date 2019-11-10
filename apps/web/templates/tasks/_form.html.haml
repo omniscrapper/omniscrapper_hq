@@ -29,8 +29,17 @@
 
     - fields_for :scrapper_params do
       - scrapping_fields.each do |field|
-        - label field[:name]
-        - text_field field[:name], class: 'form-control', required: field[:required]
+        - fields_for field[:name] do
+          - h5 do
+            - field[:name]
+          - label :selector
+          - text_field :selector, class: 'form-control'
+
+          - label :pattern
+          - text_field :pattern, class: 'form-control'
+
+          - label :normalizer
+          - select :normalizer, available_normalizers, class: 'form-control'
 
   - div class: 'form-group' do
     - submit 'Submit', class: 'btn btn-primary'
