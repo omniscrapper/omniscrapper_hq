@@ -6,11 +6,14 @@ module Web
       class Index
         include Web::Action
         include Controllers::Shared::Pagination
+        include Import[
+          site_repo: 'repositories.site'
+        ]
 
         expose :sites, :pagination_data
 
         def call(_)
-          @pagination_data, @sites = pagy SiteRepository.new
+          @pagination_data, @sites = pagy site_repo
         end
       end
     end

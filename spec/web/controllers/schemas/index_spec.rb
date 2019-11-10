@@ -2,12 +2,15 @@ RSpec.describe Web::Controllers::Schemas::Index, type: :action do
   let(:action) { described_class.new }
   let(:schemas) { [Fabricate.build(:schema)] }
   let(:params) { Hash[] }
-  let(:schema_repo) { double 'SchemaRepository' }
   let(:pagy) { double 'Pagy' }
+
+  before(:all) do
+    schema_repo = double 'SchemaRepository'
+    System::Container.stub('repositories.schema', schema_repo)
+  end
 
   before do
     allow(action).to receive(:pagy).and_return([pagy, schemas])
-    System::Container.stub('repositories.schema', schema_repo)
     @response = action.call(params)
   end
 

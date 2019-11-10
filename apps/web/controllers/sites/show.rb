@@ -3,10 +3,14 @@ module Web
     module Sites
       class Show
         include Web::Action
+        include Import[
+          site_repo: 'repositories.site'
+        ]
+
         expose :site
 
         def call(params)
-          @site = SiteRepository.new.find(params[:id])
+          @site = site_repo.find(params[:id])
         end
       end
     end
