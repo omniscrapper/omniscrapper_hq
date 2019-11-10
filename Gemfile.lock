@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/omniscrapper/omni_scrapper.git
-  revision: 4ca931bafd03cf1c52a45c35b3cc98cfde8d109e
+  revision: 6431f5d77ce9e589ac2f95af677f6a6b6d352c01
   specs:
     omni_scrapper (2.0.0.beta1)
       ferrum
@@ -34,8 +34,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
     autoprefixer-rails (9.6.0)
       execjs
@@ -239,7 +239,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (3.1.0)
+    public_suffix (4.0.1)
     puma (4.2.1)
       nio4r (~> 2.0)
     rack (2.0.7)
