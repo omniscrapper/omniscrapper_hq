@@ -1,2 +1,17 @@
-.container
-  = @events
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Name
+      %th Task
+      %th Frequency
+      %th
+  %tbody
+    - events.each do |event|
+      %tr
+        %td= event.name
+        %td= event.task_id
+        %td= event.frequency
+        %td
+          = edit_button("#")
+          = remove_button("#")
+

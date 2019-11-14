@@ -7,11 +7,11 @@ module Web
           operation: 'operations.event.index'
         ]
 
+        expose :events
+
         def call(_)
           @events = operation.call
-          p @events
         end
-
       end
     end
   end
