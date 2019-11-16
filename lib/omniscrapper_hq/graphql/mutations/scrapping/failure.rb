@@ -12,6 +12,7 @@ module Graphql
 
         def resolve(attributes:)
           Operations::Scrapping::Failure.new.call(attributes)
+          {errors: []}
         end
       end
     end
