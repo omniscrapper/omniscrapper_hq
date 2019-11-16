@@ -3,13 +3,13 @@ require './lib/omniscrapper_hq/operations/base'
 module Operations
   module Scrapping
     # Base class for operations managing scrapping finished events
-    class Base < ::Operations::Base
+    class Finish < ::Operations::Base
       include Import[
         finish_repo: 'repositories.scrapping.finish_event'
       ]
 
       def call(attributes = {})
-        attributes = attributes.to_h.merge(event_type: 'success')
+        attributes = attributes.to_h.merge(event_type: event_type)
         finish_repo.create(attributes)
       end
 

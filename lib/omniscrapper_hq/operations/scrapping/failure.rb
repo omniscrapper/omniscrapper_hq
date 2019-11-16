@@ -1,9 +1,9 @@
-require './lib/omniscrapper_hq/operations/scrapping/base'
+require './lib/omniscrapper_hq/operations/scrapping/finish'
 
 module Operations
   module Scrapping
     # Creates a failed scrapping result record
-    class Failure < Base
+    class Failure < Finish
       private
 
       def event_type
