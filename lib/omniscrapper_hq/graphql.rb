@@ -1,3 +1,5 @@
 require 'graphql'
+require_relative 'graphql/inputs'
 require_relative 'graphql/types'
+require_relative 'graphql/mutations'
 require_relative 'graphql/schemas'
