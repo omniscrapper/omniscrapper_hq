@@ -17,7 +17,15 @@ It main goal is to provide:
 ### Demo
 If you want just to see how the application works, you can use dockerized setup to start project with a single command.
 
-Just run `docker-compose up` in the directory of project, and they visit [localhost:2300](http://localhost:2300).
+Run
+
+`docker-compose up -d postgres redis kafka web`
+then run
+`docker-compose up -d scheduler runner`
+
+in the directory of project, and they visit [localhost:2300](http://localhost:2300).
+
+Dockerized version has already defines scrapper for HackerNews website, which will be started right after services start.
 
 ### Start
 

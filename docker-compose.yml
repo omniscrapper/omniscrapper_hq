@@ -41,7 +41,7 @@ services:
     depends_on:
       - zoo
 
-  omniscrapper_hq:
+  web:
     image: docker.pkg.github.com/omniscrapper/omniscrapper_hq/web:latest
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@postgres/omniscrapper_hq"
@@ -60,9 +60,9 @@ services:
     image: docker.pkg.github.com/omniscrapper/runner/runner:latest
     environment:
       REDIS_URL: 'redis://redis:6379/0'
-      API_URL: 'http://omniscrapper_hq:2300/api/public/graphql'
+      API_URL: 'http://web:2300/api/public/graphql'
     depends_on:
-      - omniscrapper_hq
+      - web
       - redis
       - kafka
 
@@ -70,7 +70,7 @@ services:
     image: docker.pkg.github.com/omniscrapper/scheduler/scheduler:latest
     environment:
       REDIS_URL: 'redis://redis:6379/0'
-      API_URL: 'http://omniscrapper_hq:2300/api/public/graphql'
+      API_URL: 'http://web:2300/api/public/graphql'
     depends_on:
-      - omniscrapper_hq
+      - web
       - redis
