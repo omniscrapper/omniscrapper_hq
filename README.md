@@ -1,6 +1,6 @@
 # OmniScrapper HQ
 
-[![CircleCI](https://circleci.com/gh/omniscrapper/omniscrapper_hq/tree/master.svg?style=svg)](https://circleci.com/gh/omniscrapper/omniscrapper_hq/tree/master)
+![](https://github.com/omniscrapper/omniscrapper_hq/workflows/.github/workflows/dockerimage.yml/badge.svg)
 
 <img src="https://i.imgur.com/8r3Sb82.png" width="300" height="300">
 

@@ -1,6 +1,9 @@
 name: Docker Image CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
 
@@ -8,16 +11,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    on:
-      push:
-        branches:
-          - master
-
     steps:
       - uses: actions/checkout@v1
+
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag omniscrapper/omniscrapper_hq:latest
+        run: docker build . --file Dockerfile --tag docker.pkg.github.com/omniscrapper/omniscrapper_hq/web:latest
+
+      - name: Sign in to Github Registry
+        run: docker login docker.pkg.github.com --username Mehonoshin -p ${{ secrets.GITHUB_TOKEN }}
+
       - name: Push docker image
-        run: docker push docker.pkg.github.com/omniscrapper/omniscrapper_hq:latest
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        run: docker push docker.pkg.github.com/omniscrapper/omniscrapper_hq/web:latest
