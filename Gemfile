@@ -28,6 +28,7 @@ gem 'dry-validation'
 
 gem 'graphql'
 gem 'sidekiq'
+gem 'graphql-client'
 
 gem 'json-schema'
 gem 'pagy', '~> 3.6.0'

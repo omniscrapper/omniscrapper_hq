@@ -1,0 +1,17 @@
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Name
+      %th Task
+      %th Frequency
+      %th
+  %tbody
+    - schedules.each do |event|
+      %tr
+        %td= schedule.name
+        %td= schedule.task_id
+        %td= schedule.frequency
+        %td
+          = edit_button("#")
+          = remove_button("#")
+
