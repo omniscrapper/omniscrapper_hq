@@ -1,5 +1,7 @@
 # OmniScrapper HQ
 
+[![CircleCI](https://circleci.com/gh/omniscrapper/omniscrapper_hq/tree/master.svg?style=svg)](https://circleci.com/gh/omniscrapper/omniscrapper_hq/tree/master)
+
 <img src="https://i.imgur.com/8r3Sb82.png" width="300" height="300">
 
 Web application for OmniScrapper management.
