@@ -10,6 +10,7 @@ module Operations
         omniscrapper.setup(:test_scrapper) do |config|
           config.schema schema.definition
           config.crawler task.crawler
+          config.scrapping_error_handler = -> (uri, ex) { puts "Scrapping error callback! #{uri} #{ex.message}" }
 
           task.crawler_params.each do |name, value|
             config.public_send(name, value)

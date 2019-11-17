@@ -42,7 +42,7 @@ services:
       - zoo
 
   omniscrapper_hq:
-    image: omniscrapper/omniscrapper_hq
+    image: docker.pkg.github.com/omniscrapper/omniscrapper_hq/web:latest
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@postgres/omniscrapper_hq"
       SERVE_STATIC_ASSETS: "true"
@@ -57,7 +57,7 @@ services:
       - redis
 
   runner:
-    image: omniscrapper/runner
+    image: docker.pkg.github.com/omniscrapper/runner/runner:latest
     environment:
       REDIS_URL: 'redis://redis:6379/0'
       API_URL: 'http://omniscrapper_hq:2300/api/public/graphql'
@@ -67,7 +67,7 @@ services:
       - kafka
 
   scheduler:
-    image: omniscrapper/scheduler
+    image: docker.pkg.github.com/omniscrapper/scheduler/scheduler:latest
     environment:
       REDIS_URL: 'redis://redis:6379/0'
       API_URL: 'http://omniscrapper_hq:2300/api/public/graphql'

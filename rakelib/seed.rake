@@ -6,4 +6,10 @@ namespace :db do
     require_relative 'seeds'
     Seeds.new.call
   end
+
+  desc 'Add hackernews task'
+  task :seed_hackernews do
+    require_relative 'hackernews_seeds'
+    HackernewsSeeds.new.call
+  end
 end

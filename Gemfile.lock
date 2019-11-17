@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/omniscrapper/omni_scrapper.git
-  revision: 4bc8d862f59caec918a4978f3c54a9304be5eda3
+  revision: 9e67174880f3612fc49395bc1b0141d38e5d9d12
   specs:
     omni_scrapper (2.0.0.beta1)
       ferrum
