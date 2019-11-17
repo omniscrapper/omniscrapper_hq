@@ -1,5 +1,5 @@
 module Operations
-  module Event
+  module Schedule
     class Index < Base
       GRAPHQL_CLIENT ||= System::Container['omniscrapper.graphql_client']
 

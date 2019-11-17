@@ -1,6 +1,6 @@
 module Web
   module Views
-    module Events
+    module Schedules
       class Index
         include Web::View
       end

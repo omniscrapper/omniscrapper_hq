@@ -1,16 +1,16 @@
 module Web
   module Controllers
-    module Events
+    module Schedules
       class Index
         include Web::Action
         include Import[
-          operation: 'operations.event.index'
+          operation: 'operations.schedule.index'
         ]
 
-        expose :events
+        expose :schedules
 
         def call(_)
-          @events = operation.call
+          @schedules = operation.call
         end
       end
     end

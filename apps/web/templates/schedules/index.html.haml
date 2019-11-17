@@ -6,11 +6,11 @@
       %th Frequency
       %th
   %tbody
-    - events.each do |event|
+    - schedules.each do |event|
       %tr
-        %td= event.name
-        %td= event.task_id
-        %td= event.frequency
+        %td= schedule.name
+        %td= schedule.task_id
+        %td= schedule.frequency
         %td
           = edit_button("#")
           = remove_button("#")

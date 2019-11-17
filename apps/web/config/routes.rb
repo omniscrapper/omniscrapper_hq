@@ -12,4 +12,4 @@ resources :test_results, only: [:index] do
   end
 end
 resources :outputs, only: [:index, :new, :create]
-resources :events, only: [:index]
+resources :schedules, only: [:index]
