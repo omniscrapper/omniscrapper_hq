@@ -48,7 +48,7 @@ class Seeds
         kafka_host: 'localhost',
         kafka_topic: 'scrapping'
       }
-    ) 
+    )
   end
 
   def seed_schemas

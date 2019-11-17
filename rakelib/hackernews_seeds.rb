@@ -31,10 +31,10 @@ class HackernewsSeeds
     output_repo.create(
       adapter: 'Kafka',
       adapter_params: {
-        kafka_host: 'localhost',
+        kafka_host: 'kafka',
         kafka_topic: 'hackernews'
       }
-    ) 
+    )
   end
 
   def seed_schemas
