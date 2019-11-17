@@ -6,4 +6,16 @@
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
+  table {
+    tr.failure {
+      background-color: #f8d7da;
+    }
+    tr.success {
+      background-color: #d4edda;
+    }
+    tr.running {
+      background-color: #fff3cd;
+    }
+  }
 }
