@@ -8,7 +8,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    on:
+      push:
+        branches:
+          - master
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag omniscrapper/omniscrapper_hq:$(date +%s)
+      - uses: actions/checkout@v1
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag omniscrapper/omniscrapper_hq:latest
+      - name: Push docker image
+        run: docker push docker.pkg.github.com/omniscrapper/omniscrapper_hq:latest
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
