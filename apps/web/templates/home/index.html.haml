@@ -1,2 +1,19 @@
 .container
-  %h1= 'Welcome'
+  %h1= 'OmniScrapperHQ Status'
+
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th Task
+      %th Job
+      %th State
+      %th Time elapsed
+      %th
+  %tbody
+    - tasks.each do |task|
+      %tr{class: task.status}
+        %td= task.task_id
+        %td= task.job_id
+        %td= task.status
+        %td= task.elapsed_time
+

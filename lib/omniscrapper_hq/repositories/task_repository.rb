@@ -7,6 +7,8 @@ class TaskRepository < Hanami::Repository
     has_many :test_results
     belongs_to :schema
     belongs_to :site
+    has_many :scrapping_finished_events
+    has_many :scrapping_started_events
   end
 
   def delete_with_dependencies(id)
