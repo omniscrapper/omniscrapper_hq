@@ -4,6 +4,9 @@ module Web
       class Create
         include Web::Action
         include Dry::Monads::Result::Mixin
+        include Import[
+          create_task: 'operations.task.create'
+        ]
 
         params do
           required(:task).schema do
@@ -17,8 +20,7 @@ module Web
         end
 
         def call(params)
-          # TODO: inject via dry-system
-          result = Operations::Task::Create.new.call(params.to_hash)
+          result = create_task.call(params.to_hash)
 
           case result
           when Success
