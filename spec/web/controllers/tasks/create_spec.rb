@@ -33,7 +33,6 @@ RSpec.describe Web::Controllers::Tasks::Create, type: :action do
     let(:result) { Success.new(:success) }
 
     it 'should be 302 http status' do
-
       expect(@response.first).to eq 302
     end
 

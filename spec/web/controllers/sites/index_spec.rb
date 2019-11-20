@@ -1,6 +1,5 @@
 RSpec.describe Web::Controllers::Sites::Index, type: :action do
   let(:action) { described_class.new }
-  let(:params) { Hash[] }
   let(:sites) { [Fabricate.build(:site)] }
   let(:pagy) { double 'Pagy' }
 
