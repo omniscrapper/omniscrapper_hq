@@ -11,11 +11,11 @@ RSpec.describe Web::Controllers::DryRun::Create, type: :action do
       System::Container.stub('repositories.task', task_repo)
     end
 
-    it 'should be 200 http status' do
-      response = action.call(params)
+      it 'should be 200 http status' do
+        response = action.call(params)
 
-      expect(response.first).to eq 200
-    end
+        expect(response.first).to eq 200
+      end
 
     context 'exposures' do
       it 'should return the task' do
