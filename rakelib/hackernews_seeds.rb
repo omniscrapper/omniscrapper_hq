@@ -7,11 +7,16 @@ class HackernewsSeeds
   ]
 
   def call(repos = {})
+    return if site
     @repos = repos
     seed_all
   end
 
   private
+
+  def site
+    site_repo.find_by(name: 'HackerNews')
+  end
 
   def seed_all
     site = seed_sites

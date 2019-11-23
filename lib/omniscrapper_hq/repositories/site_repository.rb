@@ -10,4 +10,10 @@ class SiteRepository < Hanami::Repository
   def find_with_tasks(id)
     aggregate(:tasks).where(id: id).map_to(Site).one
   end
+
+  def find_by(options = {})
+    sites
+      .where(options)
+      .first
+  end
 end
