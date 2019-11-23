@@ -5,9 +5,14 @@
   %thead
     %tr
       %th ID
+      %th Name
       %th Adapter
+      %th
   %tbody
     - outputs.each do |output|
       %tr
         %td= output.id
+        %td= output.name
         %td= output.adapter
+        %td
+          = edit_button(routes.edit_output_path(id: output.id))

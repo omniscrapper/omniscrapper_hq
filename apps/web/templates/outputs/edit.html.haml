@@ -1,0 +1,11 @@
+.container
+  %h2 Edit output
+
+  - unless params.valid?
+    .errors
+    %h5 There was a problem with your submission
+    %ul
+      - params.error_messages.each do |message|
+        = message
+
+= render partial: 'form', locals: { url: routes.output_path(output.id), method: :patch, output: output }

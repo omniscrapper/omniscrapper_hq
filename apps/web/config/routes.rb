@@ -11,4 +11,4 @@ resources :test_results, only: [:index] do
     delete :clear
   end
 end
-resources :outputs, only: [:index, :new, :create]
+resources :outputs, only: [:index, :new, :create, :edit, :update]
