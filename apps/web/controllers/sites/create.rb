@@ -13,6 +13,7 @@ module Web
           end
         end
 
+        # TODO: create operation for it
         def call(params)
           if params.valid?
             @site = SiteRepository.new.create(params[:site])

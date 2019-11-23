@@ -1,5 +1,9 @@
 = form_for :output, url, method: method, values: { output: output } do
   - div class: 'form-group' do
+    - label :name
+    - text_field :name, class: 'form-control'
+
+  - div class: 'form-group' do
     - label :adapter
     - select :adapter, adapters, class: 'form-control'
 
