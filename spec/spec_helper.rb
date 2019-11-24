@@ -6,6 +6,8 @@ require_relative '../config/environment'
 require 'simplecov'
 
 System::Container.enable_stubs!
+System::Container.finalize!
+
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
 
@@ -29,5 +31,12 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  db = Sequel::Model.db
+  config.around(:each) do |example|
+    db.transaction(rollback: :always, auto_savepoint: true) do
+      example.run
+    end
   end
 end

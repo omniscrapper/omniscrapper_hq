@@ -7,7 +7,7 @@ module Web
           clear_results: 'operations.single_run.clear'
         ]
 
-        def call(params)
+        def call(_)
           clear_results.call
           flash[:success] = 'Test results table was cleared'
           redirect_to routes.test_results_path

@@ -9,7 +9,7 @@ module Web
 
         expose :outputs
 
-        def call(params)
+        def call(_)
           @outputs = output_repo.all
         end
       end
