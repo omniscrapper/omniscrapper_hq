@@ -1,0 +1,13 @@
+= form_for :schema, url, method: method, values: { schema: schema } do
+  - div class: 'form-group' do
+    - label :name
+    - text_field :name, class: 'form-control'
+
+  - div class: 'form-group' do
+    - label :definition
+    - text_area :definition, schema.definition.to_json, style: "width: 400px; height: 400px;", class: 'form-control'
+
+  - div class: 'form-group' do
+    - submit 'Submit', class: 'btn btn-primary'
+
+

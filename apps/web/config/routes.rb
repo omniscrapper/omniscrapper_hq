@@ -1,7 +1,7 @@
 root to: 'home#index'
 
 resources :sites
-resources :schemas
+resources :schemas, only: [:index, :new, :create, :edit, :update]
 resources :tasks
 
 resources :dry_run, only: [:create]
