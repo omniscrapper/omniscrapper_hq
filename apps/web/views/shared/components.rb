@@ -9,13 +9,13 @@ module Web
             end
 
             def remove_button(path)
-              form_for(:object, path, method: :delete) do
+              form_for(:object, path, method: :delete, class: 'd-inline-block') do
                 submit '', class: 'btn btn-danger fas fa-trash'
               end
             end
 
             def button_for(path, level, action)
-              form_for(:object, path, method: :post) do
+              form_for(:object, path, method: :post, class: 'd-inline-block') do
                 submit '', class: "btn btn-#{level} fas fa-#{action}"
               end
             end
