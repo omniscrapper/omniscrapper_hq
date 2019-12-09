@@ -5,15 +5,16 @@
   %thead
     %tr
       %th Task
-      %th Job
-      %th State
-      %th Time elapsed
-      %th
+      %th Total
+      %th Finished
+      %th Failed
+      %th Success rate
   %tbody
-    - tasks.each do |task|
-      %tr{class: task.status}
-        %td= task.task_id
-        %td= task.job_id
-        %td= task.status
-        %td= task.elapsed_time
+    - tasks.each do |task_id, task|
+      %tr{class: task_status(task)}
+        %td= link_to task[:site_name], "##{task_id}"
+        %td= task[:total_jobs]
+        %td= task[:finished_jobs]
+        %td= task[:failed_jobs]
+        %td= task[:success_rate]
 

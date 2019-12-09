@@ -4,13 +4,13 @@ module Web
       class Index
         include Web::Action
         include Import[
-          task_repo: 'repositories.scrapping.start_event'
+          tasks_statistics: 'domain.statistics.tasks'
         ]
 
         expose :tasks
 
         def call(params)
-          @tasks = task_repo.tasks_statuses
+          @tasks = tasks_statistics.call
         end
       end
     end

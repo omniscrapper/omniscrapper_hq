@@ -6,6 +6,7 @@ module System
     extend Dry::System::Hanami::Resolver
 
     register_folder! 'omniscrapper_hq/domain/configuration'
+    register_folder! 'omniscrapper_hq/domain/statistics'
     register_folder! 'omniscrapper_hq/repositories'
     register_folder! 'omniscrapper_hq/operations'
 
