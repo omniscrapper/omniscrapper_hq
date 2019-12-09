@@ -1,0 +1,56 @@
+.container
+  %h1 Task Status
+
+  %h2 Counters
+  %table.table.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Total
+        %th Failed
+        %th Success
+        %th Success rate
+    %tbody
+      %tr
+        %td= task[:counters][:total_count]
+        %td= task[:counters][:failed_count]
+        %td= task[:counters][:success_count]
+        %td= task[:counters][:success_rate]
+
+
+  %h2 Exceptions
+  %table.table.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Count
+        %th Value
+    %tbody
+      - task[:exceptions].each do |object|
+        %tr
+          %td= object[:count]
+          %td= object[:exception_class]
+
+
+  %h2 Messages
+  %table.table.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Count
+        %th Value
+    %tbody
+      - task[:messages].each do |object|
+        %tr
+          %td= object[:count]
+          %td= object[:message]
+
+  %h2 Traces
+  %table.table.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Count
+        %th Value
+    %tbody
+      - task[:traces].each do |object|
+        %tr
+          %td= object[:count]
+          %td= object[:trace]
+

@@ -12,3 +12,4 @@ resources :test_results, only: [:index] do
   end
 end
 resources :outputs, only: [:index, :new, :create, :edit, :update]
+get '/tasks/:id/jobs', to: 'tasks#jobs', as: :task_statistics
