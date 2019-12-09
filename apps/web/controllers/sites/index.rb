@@ -1,4 +1,4 @@
-require_relative '../shared/pagination.rb'
+require_relative '../shared/pagination'
 
 module Web
   module Controllers

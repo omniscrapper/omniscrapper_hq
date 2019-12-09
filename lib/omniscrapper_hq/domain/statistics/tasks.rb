@@ -8,7 +8,6 @@ module Domain
 
         {
           counters: counters,
-          latest: latest_pages
         }
       end
 
@@ -16,10 +15,6 @@ module Domain
 
       def job_statuses
         repo.job_statuses.to_a.group_by(&:task_id)
-      end
-
-      def latest_pages
-        repo.latest_pages.to_a
       end
 
       def repo

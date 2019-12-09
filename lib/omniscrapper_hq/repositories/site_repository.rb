@@ -1,4 +1,4 @@
-require_relative './shared/pagination.rb'
+require_relative './shared/pagination'
 
 class SiteRepository < Hanami::Repository
   include OmniscrapperHq::Repositories::Shared::Pagination

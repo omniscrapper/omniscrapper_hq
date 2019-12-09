@@ -17,7 +17,10 @@
           %td= task[:failed_jobs]
           %td= task[:success_rate]
 
+
   %h2 Processed urls
+  = pagination_nav pagination_data
+
   %table.table.table-bordered.table-hover.table-sm
     %thead
       %tr
@@ -25,9 +28,9 @@
         %th Status
         %th Date
     %tbody
-      - tasks[:latest].each do |task|
-        %tr{class: task.status}
-          %td= task.url
-          %td= task.status
-          %td= task.created_at
+      - pages.each do |page|
+        %tr{class: page.event_type}
+          %td= page.url
+          %td= page.event_type
+          %td= page.created_at
 
