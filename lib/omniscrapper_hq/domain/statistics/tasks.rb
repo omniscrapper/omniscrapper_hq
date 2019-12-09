@@ -2,15 +2,28 @@ module Domain
   module Statistics
     class Tasks
       def call
-        job_statuses.reduce({}) do |result, (task_id, reports)|
+        counters = job_statuses.reduce({}) do |result, (task_id, reports)|
           result.merge(task_id => task_statistics(reports))
         end
+
+        {
+          counters: counters,
+          latest: latest_pages
+        }
       end
 
       private
 
       def job_statuses
-        Scrapping::StartEventRepository.new.job_statuses.to_a.group_by(&:task_id)
+        repo.job_statuses.to_a.group_by(&:task_id)
+      end
+
+      def latest_pages
+        repo.latest_pages.to_a
+      end
+
+      def repo
+        @repo ||= Scrapping::StartEventRepository.new
       end
 
       def task_statistics(reports)

@@ -43,5 +43,13 @@ SELECT trace, COUNT(*) FROM finished_events
 WHERE event_type='failure'
 GROUP BY trace;")
     end
+
+    def latest_pages
+      root.read("
+SELECT event_type AS status, e.url, e.created_at FROM scrapping_finished_events AS e
+INNER JOIN tasks ON tasks.id=e.task_id
+ORDER BY e.id DESC
+LIMIT 100;")
+    end
   end
 end

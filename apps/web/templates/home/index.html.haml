@@ -1,20 +1,33 @@
 .container
-  %h1= 'OmniScrapperHQ Status'
+  %h1 Tasks Status
+  %table.table.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Task
+        %th Total
+        %th Finished
+        %th Failed
+        %th Success rate
+    %tbody
+      - tasks[:counters].each do |task_id, task|
+        %tr{class: task_status(task)}
+          %td= link_to task[:site_name], routes.task_statistics_path(task_id)
+          %td= task[:total_jobs]
+          %td= task[:finished_jobs]
+          %td= task[:failed_jobs]
+          %td= task[:success_rate]
 
-%table.table.table-bordered.table-hover.table-sm
-  %thead
-    %tr
-      %th Task
-      %th Total
-      %th Finished
-      %th Failed
-      %th Success rate
-  %tbody
-    - tasks.each do |task_id, task|
-      %tr{class: task_status(task)}
-        %td= link_to task[:site_name], routes.task_statistics_path(task_id)
-        %td= task[:total_jobs]
-        %td= task[:finished_jobs]
-        %td= task[:failed_jobs]
-        %td= task[:success_rate]
+  %h2 Processed urls
+  %table.table.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th URL
+        %th Status
+        %th Date
+    %tbody
+      - tasks[:latest].each do |task|
+        %tr{class: task.status}
+          %td= task.url
+          %td= task.status
+          %td= task.created_at
 
