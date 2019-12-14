@@ -1,6 +1,6 @@
 %h2= site.name
 
-.actions
+.actions.one-liner
   = link_to 'All sites', routes.sites_path, class: 'btn btn-primary'
   = edit_button(routes.edit_site_path(site.id))
   = remove_button(routes.site_path(site.id))
@@ -14,4 +14,3 @@
     %tr
       %td= site.name
       %td= link_to site.url, site.url, target: '_blank'
-
