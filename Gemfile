@@ -13,6 +13,7 @@ end
 
 gem 'rake'
 gem 'hanami',       '~> 1.3'
+gem 'jquery-hanami'
 
 gem 'hanami-model', '~> 1.3'
 gem 'pg'
