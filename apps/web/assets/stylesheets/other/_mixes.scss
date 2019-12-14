@@ -1,0 +1,11 @@
+.one-liner {
+  display: inline-flex;
+
+  .btn {
+    line-height: 24px;
+
+    &:nth-child(-n + 2) {
+      margin-right: 5px;
+    }
+  }
+}
