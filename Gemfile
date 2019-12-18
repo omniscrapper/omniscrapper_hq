@@ -25,6 +25,7 @@ gem 'dry-system', '~> 0.9.0'
 gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 gem 'dry-monads', '~> 1.1.0'
 gem 'dry-validation'
+gem 'prometheus-client'
 
 gem 'graphql'
 gem 'sidekiq'
