@@ -7,7 +7,8 @@ module Operations
       private
 
       def hook
-        Monitoring::SUCCESSFUL_PAGE_SCRAPPINGS_TOTAL.increment
+        Monitoring::PAGE_SCRAPPINGS_TOTAL.increment(labels: { event: event_type })
+        Monitoring::LAST_PAGE_SCRAPPING_DATE.set(Time.now.to_i)
       end
 
       def event_type
