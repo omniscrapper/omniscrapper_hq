@@ -26,6 +26,7 @@ gem 'dry-system', '~> 0.9.0'
 gem 'dry-system-hanami', github: 'davydovanton/dry-system-hanami'
 gem 'dry-monads', '~> 1.1.0'
 gem 'dry-validation'
+gem 'prometheus-client'
 
 gem 'graphql'
 gem 'sidekiq'
@@ -41,7 +42,7 @@ try_local 'omni_scrapper'
 #try_local 'omniscrapper_output'
 
 group :development do
-  gem 'shotgun', platforms: :ruby
+  #gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
 end
 
