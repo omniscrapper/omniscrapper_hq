@@ -12,6 +12,12 @@ module Monitoring
     :failed_page_scrappings,
     docstring: 'A counter of failed page scrappings'
   )
+
+  SCRAPPING_JOB_EVENTS_TOTAL = prometheus.counter(
+    :scrapping_job_events,
+    docstring: 'A counter of performed jobs',
+    labels: [:event]
+  )
 end
 
 
