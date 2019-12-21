@@ -12,9 +12,6 @@ module Monitoring
     :failed_page_scrappings,
     docstring: 'A counter of failed page scrappings'
   )
-
-  #prometheus.register(SUCCESSFUL_PAGE_SCRAPPINGS_TOTAL)
-  #prometheus.register(FAILED_PAGE_SCRAPPINGS_TOTAL)
 end
 
 
