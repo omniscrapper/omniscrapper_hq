@@ -6,6 +6,10 @@ module Operations
     class Success < Finish
       private
 
+      def hook
+        Monitoring::SUCCESSFUL_PAGE_SCRAPPINGS_TOTAL.increment
+      end
+
       def event_type
         'success'
       end

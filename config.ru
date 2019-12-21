@@ -1,3 +1,6 @@
+require 'prometheus/middleware/collector'
+require 'prometheus/middleware/exporter'
+
 require './config/environment'
 require 'sidekiq/web'
 
@@ -7,4 +10,6 @@ map '/sidekiq' do
   run Sidekiq::Web
 end
 
+use Prometheus::Middleware::Collector
+use Prometheus::Middleware::Exporter
 run Hanami.app

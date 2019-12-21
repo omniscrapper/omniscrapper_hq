@@ -9,11 +9,16 @@ module Operations
       ]
 
       def call(attributes = {})
+        hook
         attributes = attributes.to_h.merge(event_type: event_type)
         finish_repo.create(attributes)
       end
 
       private
+
+      def hook
+        # Can be overridden by child operation
+      end
 
       def event_type
         raise NotImplementedError, 'implement #event_type in child class'

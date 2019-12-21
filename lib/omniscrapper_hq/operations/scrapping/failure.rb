@@ -6,6 +6,10 @@ module Operations
     class Failure < Finish
       private
 
+      def hook
+        Monitoring::FAILED_PAGE_SCRAPPINGS_TOTAL.increment
+      end
+
       def event_type
         'failure'
       end

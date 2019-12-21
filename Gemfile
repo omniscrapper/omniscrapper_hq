@@ -41,7 +41,7 @@ try_local 'omni_scrapper'
 #try_local 'omniscrapper_output'
 
 group :development do
-  gem 'shotgun', platforms: :ruby
+  #gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
 end
 
