@@ -12,7 +12,7 @@ COPY ./Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 
 COPY . /app/
-RUN hanami assets precompile
+RUN bundle exec hanami assets precompile
 
 EXPOSE 2300
 
