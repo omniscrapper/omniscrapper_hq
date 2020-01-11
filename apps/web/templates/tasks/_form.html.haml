@@ -28,7 +28,7 @@
       - "Scrapping fields"
 
     - fields_for :scrapper_params do
-      - scrapping_fields.each do |field|
+      - scrapping_fields(params[:schema_id] || task.schema_id).each do |field|
         - fields_for field[:name] do
           - h5 do
             - field[:name]

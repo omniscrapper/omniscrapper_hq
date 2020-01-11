@@ -27,8 +27,12 @@ module Web
           Domain::Configuration::Crawler.new.required_fields(crawler_name)
         end
 
-        def scrapping_fields
-          schema = SchemaRepository.new.last
+        def scrapping_fields(schema_id=nil)
+          schema = if schema_id
+                     SchemaRepository.new.by_id(schema_id)
+                   else
+                     SchemaRepository.new.last
+                   end
           Domain::Configuration::Fields.new.list(schema)
         end
 
