@@ -11,6 +11,10 @@ class TaskRepository < Hanami::Repository
     has_many :scrapping_started_events
   end
 
+  def offset(size)
+    aggregate(:site).order { id.desc }.offset(size)
+  end
+
   def delete_with_dependencies(id)
     delete_dependent_test_results(id)
     delete(id)
