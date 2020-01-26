@@ -17,6 +17,11 @@ module Graphql
       def tasks
         TaskRepository.new.all
       end
+
+      field :schemas, [SchemaType], null: false
+      def schemas
+        SchemaRepository.new.all
+      end
     end
   end
 end
